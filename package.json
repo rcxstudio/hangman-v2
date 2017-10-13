@@ -1,7 +1,7 @@
 {
   "name": "hangman-v2",
   "version": "1.0.0",
-  "description": "Hangman game with everything learned in Bootcamp",
+  "description": "Hangman game with everything learned in UCBX",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/Ropestar1/hangman-v2#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "method-override": "^2.3.10",
     "mysql2": "^1.4.2",
     "sequelize": "^4.13.10"
   }
