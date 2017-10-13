@@ -16,12 +16,9 @@ app.use(methodOverride('_method'));
 
 app.use(express.static('public'));
 
-// Routes
-
-// =============================================================
+// Routes import
 const routes = require('./controllers/html-routes.js');
-const routes = require('./controllers/api-routes.js');
-
+// const routes = require('./controllers/api-routes.js');
 app.use('/', routes);
 
 // Syncing our sequelize models and then starting our Express app
