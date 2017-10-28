@@ -12,5 +12,4 @@ router.get('/', function(req, res) {
 });
 
 // Export routes for server.js to use.
-// TODO: move to ES6
-module.exports = router;
+export default router;
