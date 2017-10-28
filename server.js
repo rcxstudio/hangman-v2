@@ -1,13 +1,8 @@
-// const express = require('express');
-import express from 'express';
-// const bodyParser = require('body-parser');
-import bodyParser from 'body-parser';
-// const methodOverride = require('method-override');
-import methodOverride from 'method-override';
-// const mongoose = require("mongoose");
-import mongoose from 'mongoose';
-// const logger = require("morgan");
-import logger from 'morgan'; // is logger default export?
+const express = require('express');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const mongoose = require("mongoose");
+const logger = require("morgan");
 
 //TODO: add mongo models
 // import User from './models/User.js'
@@ -41,10 +36,9 @@ db.once("open", function() {
 
 
 // Routes import
-// const routes = require('./controllers/html-routes.js');
-import routes from './controllers/html-routes.js';
-// const routes = require('./controllers/api-routes.js');
-app.use('/', routes);
+const router = require('./controllers/routes.js');
+
+app.use('/', router);
 
 app.listen(PORT, function() {
   console.log("App running on port 3000!");
