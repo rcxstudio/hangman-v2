@@ -5,9 +5,6 @@ const methodOverride = require('method-override');
 const mongoose = require("mongoose");
 const logger = require("morgan");
 
-//TODO: add mongo models
-// import User from './models/User.js'
-
 // Sets mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
