@@ -1,5 +1,4 @@
-// const mongoose = require("mongoose");
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
@@ -13,4 +12,4 @@ const ThemeSchema = new Schema({
 });
 
 const Theme = mongoose.model('Theme', ThemeSchema);
-export default Theme;
+module.export = Theme;

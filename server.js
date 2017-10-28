@@ -20,9 +20,14 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride('_method'));
 
 app.use(express.static('public'));
-mongoose.connect("mongodb://localhost/hangman");
+//TODO: add the heroku link below
+const promise = mongoose.connect('mongodb://localhost/hangman', {
+  useMongoClient: true,
+  /* other options */
+});
 // mongoose.connect("mongodb://heroku_n9jhvtvp:2ljmj0t4f8kvq1h8uvfli79tnc@ds151431.mlab.com:51431/heroku_n9jhvtvp");
 const db = mongoose.connection;
+module.export = db; // NOTE: is this needed for other file routes to work?
 
 db.on("error", (error) => {
   console.log("Mongoose Error: ", error);
@@ -36,7 +41,7 @@ db.once("open", () => {
 // Routes import
 const router = require('./controllers/routes.js');
 
-app.use('/', router);
+// app.use('/', router);
 
 app.listen(PORT, () => {
   console.log("App running on port 3000!");

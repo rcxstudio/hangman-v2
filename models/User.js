@@ -1,5 +1,4 @@
-// const mongoose = require("mongoose");
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
@@ -33,4 +32,4 @@ const UserSchema = new Schema({
 });
 
 const User = mongoose.model('User', UserSchema);
-export default User; //check if syntax ok for ES6
+module.export = User;

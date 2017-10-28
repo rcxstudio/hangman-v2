@@ -1,9 +1,9 @@
 const express = require('express');
-
 const router = express.Router();
+const db = require('../server.js');
 
-const User = require('./models/User.js');
-const Theme = require('./models/Theme.js');
+const User = require('../models/User.js');
+const Theme = require('../models/Theme.js');
 
 // Create all our routes and set up logic within those routes where required.
 router.get('/', (req, res) => {
