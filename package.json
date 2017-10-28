@@ -1,0 +1,19 @@
+{
+  "name": "Hangman",
+  "version": "1.0.0",
+  "description": "Customized game of hangman.",
+  "main": "server.js",
+  "repository": "git@github.com:Ropestar1/hangman-v2.git",
+  "author": "Roper Macaraeg",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "mongoose": "^4.12.4"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.0"
+  }
+}

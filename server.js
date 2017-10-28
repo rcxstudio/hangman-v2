@@ -7,12 +7,12 @@ import methodOverride from 'method-override';
 // const mongoose = require("mongoose");
 import mongoose from 'mongoose';
 // const logger = require("morgan");
-import {logger} from 'morgan';
+import logger from 'morgan'; // is logger default export?
 
 //TODO: add mongo models
 // const User = require('..')
 
-// Set mongoose to leverage built in JavaScript ES6 Promises
+// Sets mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
 const app = express();
@@ -29,7 +29,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 mongoose.connect("mongodb://localhost/hangman");
 // mongoose.connect("mongodb://heroku_n9jhvtvp:2ljmj0t4f8kvq1h8uvfli79tnc@ds151431.mlab.com:51431/heroku_n9jhvtvp");
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on("error", function(error) {
   console.log("Mongoose Error: ", error);
@@ -41,7 +41,8 @@ db.once("open", function() {
 
 
 // Routes import
-const routes = require('./controllers/html-routes.js');
+// const routes = require('./controllers/html-routes.js');
+import routes from './controllers/html-routes.js';
 // const routes = require('./controllers/api-routes.js');
 app.use('/', routes);
 
