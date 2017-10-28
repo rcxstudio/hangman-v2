@@ -1,5 +1,4 @@
 const express = require('express');
-// import express from 'express';
 
 const router = express.Router();
 
@@ -8,8 +7,8 @@ const router = express.Router();
 // var db = require('../models');
 
 // Create all our routes and set up logic within those routes where required.
-router.get('/', function(req, res) {
-
+router.get('/', (req, res) => {
+  console.log('hello')
 });
 
 // Export routes for server.js to use.

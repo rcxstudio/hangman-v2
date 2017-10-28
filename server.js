@@ -1,3 +1,4 @@
+// NOTE: Complete ES6 syntax isn't supported on browsers yet. Need to use webpack and Babel to compile the syntax into ES5 syntax.
 const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
@@ -26,11 +27,11 @@ mongoose.connect("mongodb://localhost/hangman");
 // mongoose.connect("mongodb://heroku_n9jhvtvp:2ljmj0t4f8kvq1h8uvfli79tnc@ds151431.mlab.com:51431/heroku_n9jhvtvp");
 const db = mongoose.connection;
 
-db.on("error", function(error) {
+db.on("error", (error) => {
   console.log("Mongoose Error: ", error);
 });
 
-db.once("open", function() {
+db.once("open", () => {
   console.log("Mongoose connection successful.");
 });
 
@@ -40,6 +41,6 @@ const router = require('./controllers/routes.js');
 
 app.use('/', router);
 
-app.listen(PORT, function() {
+app.listen(PORT, () => {
   console.log("App running on port 3000!");
 });
