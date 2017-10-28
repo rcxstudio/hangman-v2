@@ -10,7 +10,7 @@ import mongoose from 'mongoose';
 import logger from 'morgan'; // is logger default export?
 
 //TODO: add mongo models
-// const User = require('..')
+// import User from './models/User.js'
 
 // Sets mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
