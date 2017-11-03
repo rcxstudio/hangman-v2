@@ -3,7 +3,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ThemeSchema = new Schema({
-  category: [
+  theme: {
+    type: String,
+    unique: true
+  },
+  themeBank: [
     {
       type: String,
       unique: true

@@ -61,7 +61,7 @@ class Main extends React.Component {
   render () {
     return(
       <div>
-        <img id="background-image" src="./assets/images/landscape-web.jpg" alt="landscape image" />
+        <img id="background-image" src="./images/landscape-web.jpg" alt="landscape image" />
         <main>
           <Switch>
             <Route exact path="/" render={() => (

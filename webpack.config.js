@@ -29,7 +29,7 @@ module.exports = {
       ]
   },
   devServer: {
-    historyApiFallback: true // add if you're running from localhost?
+    historyApiFallback: true
   },
   devtool: "eval-source-map"
 };

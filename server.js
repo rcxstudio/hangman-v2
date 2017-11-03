@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose = require("mongoose");
 const logger = require("morgan");
+const path = require('path');
 
 // Sets mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
@@ -19,7 +20,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.use(methodOverride('_method'));
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
 //TODO: add the heroku link below
 //database logic
 // if (process.env.MONGODB_URI || process.env.NODE_ENV === 'production') mongoose.connect(process.env.MONGODB_URI);
@@ -41,8 +43,20 @@ db.once("open", () => {
 });
 
 
-// Routes import
-const router = require('./controllers/routes.js');
+// NOTE: Routes import. is this possible?
+// const router = require('./controllers/routes.js');
+// above line doesn't actually do anything except set the routes to a constant called "router".
+
+// NOTE: BACKEND ROUTES HAPPEN HERE!
+// "html-routes" are handled by react-router
+
+
+// NOTE: THIS IS THE CATCHALL ROUTE AND MUST BE PLACED AT THE END OF THE ROUTES.
+// Allows react-router to refresh page
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+//END OF ROUTES
 
 app.listen(PORT, () => {
   console.log("App running on port 3000!");

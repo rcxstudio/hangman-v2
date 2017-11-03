@@ -1,27 +1,71 @@
-/* START - CSS variables */
+/* START of CSS variables */
 :root {
-	/*--white: white;
-	--black: black;
-	--gray: #585858;
-	--rm-gray: #444444;
-	--red: red;
+	--gray: gray;
+	/*--rm-gray: #444444;*/
+	/*--red: red;*/
 	--drop-shadow-size: .5rem;
-	--drop-shadow-color: #181818;*/
+	--drop-shadow-color: #181818;
 }
-/* END - CSS variables */
-
-* {
-	border-radius: 0 !important;
-	/*font-family: 'Questrial', sans-serif;*/
-}
+/* END of CSS Variables */
 
 /* NOTE: Use rem for sizes of fonts after html font-size is set. */
 html {
   font-size: 16px;
 }
 
-/* END - bootstrap overrides */
+* {
+	border-radius: 0 !important;
+	/*font-family: 'Questrial', sans-serif;*/
+}
 
+header {
+  background-color: gray;
+}
+
+textarea {
+  margin-bottom: 2rem;
+}
+
+.auth-buttons {
+  width: 100%
+}
+
+#login-wrap {
+  background-color: var(--gray);
+  height: 32rem;
+  margin-top: 25%;
+  padding-top: 2rem;
+  box-shadow: 0 var(--drop-shadow-size) var(--drop-shadow-size) var(--drop-shadow-color);
+}
+
+#signup-wrap {
+  background-color: var(--gray);
+  height: 38rem;
+  margin-top: 25%;
+  padding-top: 2rem;
+}
+
+
+#background-image {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -99;
+}
+
+#render-msg-wrap .panel-body{
+  height: 25rem;
+  overflow: scroll;
+}
 
 /* Media Queries Section */
 @media only screen and (max-width: 767px) {
