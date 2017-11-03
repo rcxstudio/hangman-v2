@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
     super(props);
 
     this.state = {
-      message: []
+      userinput: [];
     }
 
     this.setMessage = this.setMessage.bind(this);
