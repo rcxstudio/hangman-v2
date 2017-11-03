@@ -1,0 +1,29 @@
+/* START - CSS variables */
+:root {
+	/*--white: white;
+	--black: black;
+	--gray: #585858;
+	--rm-gray: #444444;
+	--red: red;
+	--drop-shadow-size: .5rem;
+	--drop-shadow-color: #181818;*/
+}
+/* END - CSS variables */
+
+* {
+	border-radius: 0 !important;
+	/*font-family: 'Questrial', sans-serif;*/
+}
+
+/* NOTE: Use rem for sizes of fonts after html font-size is set. */
+html {
+  font-size: 16px;
+}
+
+/* END - bootstrap overrides */
+
+
+/* Media Queries Section */
+@media only screen and (max-width: 767px) {
+
+}

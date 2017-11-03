@@ -21,11 +21,14 @@ app.use(methodOverride('_method'));
 
 app.use(express.static('public'));
 //TODO: add the heroku link below
+//database logic
+// if (process.env.MONGODB_URI || process.env.NODE_ENV === 'production') mongoose.connect(process.env.MONGODB_URI);
+// else mongoose.connect("mongodb://localhost/testUserDB");
 const promise = mongoose.connect('mongodb://localhost/hangman', {
   useMongoClient: true,
   /* other options */
 });
-// mongoose.connect("mongodb://heroku_n9jhvtvp:2ljmj0t4f8kvq1h8uvfli79tnc@ds151431.mlab.com:51431/heroku_n9jhvtvp");
+
 const db = mongoose.connection;
 module.export = db; // NOTE: is this needed for other file routes to work?
 
@@ -40,8 +43,6 @@ db.once("open", () => {
 
 // Routes import
 const router = require('./controllers/routes.js');
-
-// app.use('/', router);
 
 app.listen(PORT, () => {
   console.log("App running on port 3000!");
