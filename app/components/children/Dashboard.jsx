@@ -2,9 +2,10 @@ import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
 import Header from './Header.jsx';
-import PublicPanel from './grandchildren/PublicPanel.jsx';
-import PrivatePanel from './grandchildren/PrivatePanel.jsx';
-import MsgInput from './grandchildren/MsgInput.jsx';
+// TODO: change names of panels
+// import PublicPanel from './grandchildren/PublicPanel.jsx';
+// import PrivatePanel from './grandchildren/PrivatePanel.jsx';
+// import MsgInput from './grandchildren/MsgInput.jsx';
 
 import helpers from '../utils/helpers';
 
@@ -13,7 +14,7 @@ class Dashboard extends React.Component {
     super(props);
 
     this.state = {
-      userinput: [];
+      userinput: []
     }
 
     this.setMessage = this.setMessage.bind(this);

@@ -3,6 +3,7 @@ import { Route, Switch, Redirect} from 'react-router-dom';
 import helpers from './utils/helpers'; //TODO: check if this is required here.
 import LogInForm from './children/LogIn.jsx';
 import SignUpForm from './children/SignUp.jsx';
+import Guest from './children/Guest.jsx';
 import Dashboard from './children/Dashboard.jsx';
 import LogOut from './children/Dashboard.jsx';
 // NOTE: {} indicate named exports; without {}, it indicates the export default
@@ -16,7 +17,6 @@ class Main extends React.Component {
       email: '',
       password: '',
       loggedIn: false
-      // showDash: false
     }
 
     //NOTE: you need to bind the methods here, so when they reference this in the other files, it comes back to this area...not confusing at all, right?
@@ -25,7 +25,6 @@ class Main extends React.Component {
     this.setPassword = this.setPassword.bind(this);
     this.setLoggedIn = this.setLoggedIn.bind(this);
     this.setMsgs = this.setMsgs.bind(this);
-    // this.setShowDash = this.setShowDash.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -104,6 +103,9 @@ class Main extends React.Component {
             )} />
             <Route path="/logout" render={() => (
               <LogOut />
+            )} />
+            <Route path="/guest" render={() => (
+              <Guest />
             )} />
           </Switch>
         </main>
