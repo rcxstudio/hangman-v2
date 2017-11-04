@@ -37,39 +37,36 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    // set conditionals here!
-    if (this.props.loggedIn) {
-      return (
-        <div>
-          <Header
-            username = {this.props.username}
-            logout = {this.props.setLoggedIn}
-          />
+    // NOTE: set conditionals/code here!
+    return (
+      <div>
+        <Header
+          username = {this.props.username}
+          logout = {this.props.setLoggedIn}
+        />
 
-          <section className="container"id="render-msg-wrap">
+        <section className="container"id="render-msg-wrap">
+          <div className="row">
+            <div className="col-md-2" />
+            <PublicPanel
+              username = {this.props.username}
+            />
+
+            <PrivatePanel
+              username = {this.props.username}
+            />
+            <div className="col-md-2" />
+
             <div className="row">
-              <div className="col-md-2" />
-              <PublicPanel
-                username = {this.props.username}
+              <MsgInput
+                setMessage = {this.setMessage}
               />
 
-              <PrivatePanel
-                username = {this.props.username}
-              />
-              <div className="col-md-2" />
-
-              <div className="row">
-                <MsgInput
-                  setMessage = {this.setMessage}
-                />
-
-              </div>
             </div>
-          </section>
-        </div>
-    )}
-
-    else return (<Redirect to="/logout" />);
+          </div>
+        </section>
+      </div>
+    )
   }
 }
 

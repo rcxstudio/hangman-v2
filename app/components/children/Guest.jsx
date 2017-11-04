@@ -1,12 +1,12 @@
 import React from 'react';
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Guest extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      guestTheme: ''
     }
 
   }
@@ -15,10 +15,10 @@ class Guest extends React.Component {
     return(
       <div>
         <ul>
-          <li>Video Games</li>
-          <li>Fantasy</li>
-          <li>Sci-Fi</li>
-          <li>Programming</li>
+          <li><Link to="/dashboard/guest/videogames">Video Games</Link></li>
+          <li><Link to="/dashboard/guest/fantasy">Fantasy</Link></li>
+          <li><Link to="/dashboard/guest/scifi">Sci-Fi</Link></li>
+          <li><Link to="/dashboard/guest/programming">Programming</Link></li>
         </ul>
       </div>
     )};

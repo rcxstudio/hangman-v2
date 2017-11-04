@@ -18,6 +18,12 @@ html {
 	/*font-family: 'Questrial', sans-serif;*/
 }
 
+/*TODO: Remove when functioning*/
+li {
+  font-size: 2rem;
+  color: white;
+}
+
 header {
   background-color: gray;
 }

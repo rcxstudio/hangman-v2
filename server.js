@@ -42,9 +42,7 @@ db.once("open", () => {
   console.log("Mongoose connection successful.");
 });
 
-app.listen(PORT, () => {
-  console.log("App running on port 3000!");
-});
+
 
 // NOTE: Routes import. is this possible?
 // const router = require('./controllers/routes.js');
@@ -52,9 +50,9 @@ app.listen(PORT, () => {
 
 // NOTE: BACKEND ROUTES HAPPEN HERE!
 // "html-routes" are handled by react-router
-app.get('/dashboard/:user/:theme', function (req, res) {
-  res.send('hello')
-});
+// app.get('/dashboard/:user/:theme', function (req, res) {
+//   res.send('hello')
+// });
 
 // NOTE: THIS IS THE CATCHALL ROUTE AND MUST BE PLACED AT THE END OF THE ROUTES.
 // Allows react-router to refresh page
@@ -62,3 +60,7 @@ app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 //END OF ROUTES
+
+app.listen(PORT, () => {
+  console.log("App running on port 3000!");
+});
