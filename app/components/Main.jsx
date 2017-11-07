@@ -26,7 +26,11 @@ class Main extends React.Component {
             <Route exact path="/" render={() => (
               <Redirect to="/dashboard/guest/themes" />)}
             />
-            <Route path="/dashboard/guest/themes" component={Guest} />
+          <Route path="/dashboard/guest/themes" render={() => (
+            <Guest
+
+            />
+            )} />
           </Switch>
         </main>
       </div>

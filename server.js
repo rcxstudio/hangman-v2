@@ -50,9 +50,9 @@ db.once("open", () => {
 
 // NOTE: BACKEND ROUTES HAPPEN HERE!
 // "html-routes" are handled by react-router
-// app.get('/dashboard/:user/:theme', function (req, res) {
-//   res.send('hello')
-// });
+app.get('/dashboard/:user/:theme', function (req, res) {
+  res.send('hello')
+});
 
 // NOTE: THIS IS THE CATCHALL ROUTE AND MUST BE PLACED AT THE END OF THE ROUTES.
 // Allows react-router to refresh page
