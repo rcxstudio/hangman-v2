@@ -6,10 +6,7 @@ class Guest extends React.Component {
     super(props);
 
     this.state = {
-      videogames: 'false',
-      fantasy: 'false',
-      scifi: 'false',
-      programming: 'false'
+
     }
   }
 

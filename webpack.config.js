@@ -3,16 +3,15 @@ const path = require('path');
 
 module.exports = {
   entry: './app/app.jsx',
-  // NOTE: research below for what it does compare to publicPath
-  // output: {
-  //      path: path.resolve(__dirname, 'build'),
-  //      filename: 'app.bundle.js'
-  //  },
   output: {
-    filename: 'public/app.bundle.js',
-    publicPath: '/'
-    // NOTE: look up docs on publicPath and path for further study
-  },
+       path: __dirname + '/build/',
+       filename: 'app.bundle.js'
+   },
+  // output: {
+  //   filename: 'public/app.bundle.js',
+  //   publicPath: '/'
+  //   // NOTE: look up docs on publicPath and path for further study
+  // },
   module: {
     rules: [
         {

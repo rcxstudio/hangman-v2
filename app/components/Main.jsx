@@ -13,7 +13,10 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-
+      videogames: 'false',
+      fantasy: 'false',
+      scifi: 'false',
+      programming: 'false'
     }
   }
 
@@ -26,11 +29,11 @@ class Main extends React.Component {
             <Route exact path="/" render={() => (
               <Redirect to="/dashboard/guest/themes" />)}
             />
-          <Route path="/dashboard/guest/themes" render={() => (
-            <Guest
+          <Route exact path="/dashboard/guest/themes" render={() => (
+              <Guest
 
-            />
-            )} />
+              />
+              )} />
           </Switch>
         </main>
       </div>

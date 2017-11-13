@@ -50,6 +50,10 @@ db.once("open", () => {
 
 // NOTE: BACKEND ROUTES HAPPEN HERE!
 // "html-routes" are handled by react-router
+// app.get('/', function (req, res) {
+//   res.send('index')
+// });
+
 app.get('/dashboard/:user/:theme', function (req, res) {
   res.send('hello')
 });
