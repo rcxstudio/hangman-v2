@@ -20,6 +20,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.use(methodOverride('_method'));
 
+//NOTE: with webpack, bundle.js needs to be in the public folder...check docs
 app.use(express.static(path.join(__dirname, 'public')));
 
 //TODO: add the heroku link below

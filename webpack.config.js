@@ -3,15 +3,12 @@ const path = require('path');
 
 module.exports = {
   entry: './app/app.jsx',
+  // NOTE: you can have multiple entry points
   output: {
-       path: __dirname + '/build/',
-       filename: 'app.bundle.js'
+       path: __dirname + '/public/builds/',
+       filename: 'app.bundle.js',
    },
-  // output: {
-  //   filename: 'public/app.bundle.js',
-  //   publicPath: '/'
-  //   // NOTE: look up docs on publicPath and path for further study
-  // },
+  // NOTE: you can use [name].bundle.js with multiple entry points
   module: {
     rules: [
         {
@@ -27,6 +24,7 @@ module.exports = {
         }
       ]
   },
+  // TODO: Research devServer when you get a chance
   devServer: {
     historyApiFallback: true
   },

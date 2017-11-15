@@ -1,6 +1,5 @@
 .DS_Store
-build/
-public/app.bundle.js
+public/builds/
 
 # Logs
 logs
