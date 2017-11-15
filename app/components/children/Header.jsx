@@ -2,18 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import LogInForm from './LogIn.jsx';
 import helpers from '../utils/helpers.js';
 
 class Header extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = {
-      currentUser: ''
-    }
-
-    this.handleClick = this.handleClick.bind(this);
+    // this.state = {
+    //   currentUser: ''
+    // }
+    //
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -21,14 +20,7 @@ class Header extends React.Component {
   }
 
   handleClick() {
-    const userToLogOut = {
-      username : this.props.username
-    }
 
-    helpers.logout(userToLogOut).then((helperRes) => {
-    console.log('helperRes', helperRes);
-    this.props.logout(false);
-  })
   }
 
   render() {

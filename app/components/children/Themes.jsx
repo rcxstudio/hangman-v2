@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Guest extends React.Component {
+class Themes extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,4 +23,4 @@ class Guest extends React.Component {
     )};
 }
 
-export default Guest;
+export default Themes;
