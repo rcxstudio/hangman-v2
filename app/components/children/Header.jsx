@@ -16,7 +16,7 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({currentUser: this.props.username})
+    console.log('Videogame header loaded.')
   }
 
   handleClick() {
@@ -29,15 +29,8 @@ class Header extends React.Component {
     return (
       <header className="container">
         <div className="row">
-          <div className="col-md-8 text-center">
-            <h1>{`Welcome, ${username}!`}</h1>
-          </div>
-          <div className="col-md-2 text-center">
-            <button onClick={this.handleClick} type="submit" className="btn btn-default auth-buttons">
-              Log Out
-            </button>
-          </div>
-          <div className="col-md-2">
+          <div className="col-md-12 text-center">
+            <h1>Hangman Video Game Theme</h1>
           </div>
         </div>
       </header>

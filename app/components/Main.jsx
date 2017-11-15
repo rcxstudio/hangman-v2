@@ -9,6 +9,11 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
+      themes: {
+        videogames: false,
+        sciFi: false,
+        fantasy: false,
+      },
       letters: {
         a: false,
         b: false,
@@ -41,20 +46,39 @@ class Main extends React.Component {
       wrongLetters:[],
       correctLetters: [],
       guessesLeft: 6,
-      winStreak: 0
+      winStreak: 0,
+      secretCode: []
     }
+
+    this.setLetter = this.setLetter.bind(this);
+  }
+  // React Lifecycle functions
+
+
+  // Custom functions
+
+  setLetter(guessedLetter) {
+    console.log(guessedLetter);
+    console.table(this.state.letters);
+    //TODO: find a way to get the guessedLetter to indicate the actual letter
+    console.log(this.state.letters.guessedLetter);
+    this.setState({ letters: {guessedLetter: true } })
   }
 
-  render () {
+  render() {
     return(
       <div>
         <img id="background-image" src="./images/landscape-web.jpg" alt="landscape image" />
         <main>
           <Switch>
             <Route exact path="/" component={Themes} />
-            <Route exact path="/videogames" render={() => (
-              <Videogames/>
-              )} />
+            <Route path="/videogames" render={() => (
+              <Videogames
+                themes = {this.state.themes}
+                letters = {this.state.letters}
+                setLetter = {this.setLetter}
+              />
+            )} />
           </Switch>
         </main>
       </div>

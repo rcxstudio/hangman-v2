@@ -14,10 +14,9 @@ class Themes extends React.Component {
     return(
       <div>
         <ul>
-          <li><Link to="/dashboard/guest/videogames">Video Games</Link></li>
-          <li><Link to="/dashboard/guest/fantasy">Fantasy</Link></li>
-          <li><Link to="/dashboard/guest/scifi">Sci-Fi</Link></li>
-          <li><Link to="/dashboard/guest/programming">Programming</Link></li>
+          <li><Link to="/videogames">Video Games</Link></li>
+          <li><Link to="/fantasy">Fantasy</Link></li>
+          <li><Link to="/scifi">Sci-Fi</Link></li>
         </ul>
       </div>
     )};
