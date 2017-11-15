@@ -43,6 +43,7 @@ class Main extends React.Component {
         z: false
       },
       wordToGuess: '',
+      usedWords: [],
       wrongLetters:[],
       correctLetters: [],
       guessesLeft: 6,
@@ -51,9 +52,12 @@ class Main extends React.Component {
     }
 
     this.setLetter = this.setLetter.bind(this);
+    this.setWord = this.setWord.bind(this);
   }
   // React Lifecycle functions
-
+  componentDidUpdate() {
+    console.log(this.state.wordToGuess);
+  }
 
   // Custom functions
   setLetter(guessedLetter) {
@@ -69,7 +73,7 @@ class Main extends React.Component {
   }
 
   setWord(word) {
-    
+    this.setState({wordToGuess: word})
   }
 
   render() {
@@ -84,6 +88,7 @@ class Main extends React.Component {
                 themes = {this.state.themes}
                 letters = {this.state.letters}
                 setLetter = {this.setLetter}
+                setWord = {this.setWord}
               />
             )} />
           </Switch>

@@ -17,6 +17,8 @@ class Videogames extends React.Component {
 
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyPress);
+    // TODO: change argument below to read from database
+    this.props.setWord('hello');
   }
 
   componentWillUnmount() {
