@@ -56,13 +56,20 @@ class Main extends React.Component {
 
 
   // Custom functions
-
   setLetter(guessedLetter) {
     console.log(guessedLetter);
-    console.table(this.state.letters);
-    //TODO: find a way to get the guessedLetter to indicate the actual letter
-    console.log(this.state.letters.guessedLetter);
-    this.setState({ letters: {guessedLetter: true } })
+
+    if (guessedLetter in this.state.letters) {
+      const updatedLetters = this.state.letters;
+      updatedLetters[guessedLetter] = true;
+      console.table(updatedLetters);
+      // NOTE: you can use variables as keys if you use bracket notation
+      this.setState({ letters: updatedLetters })
+    }
+  }
+
+  setWord(word) {
+    
   }
 
   render() {
