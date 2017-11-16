@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import helpers from '../utils/helpers.js';
 
-class Header extends React.Component {
+class HeaderGames extends React.Component {
   constructor(props){
     super(props);
 
@@ -16,7 +16,7 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Default header loaded.')
+
   }
 
   handleClick() {
@@ -25,14 +25,14 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header className="container">
+      <header className="container-fluid">
         <div className="row">
           <div className="col-md-12 text-center">
-            <h1>Hangman - version 2</h1>
+            <h1>Hangman Video Game Theme</h1>
           </div>
         </div>
       </header>
   )}
 }
 
-export default Header;
+export default HeaderGames;

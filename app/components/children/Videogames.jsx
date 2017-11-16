@@ -1,16 +1,14 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
-import Header from './Header.jsx';
+import HeaderGames from './HeaderGames.jsx';
+import GuessArea from './GuessArea.jsx';
+import Streak from './Streak.jsx';
 import helpers from '../utils/helpers';
 
 class Videogames extends React.Component {
   constructor(props){
     super(props);
-
-    // this.state = {
-    //   userinput: []
-    // }
 
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
@@ -26,6 +24,12 @@ class Videogames extends React.Component {
     document.removeEventListener('keypress', this.handleKeyPress);
   }
 
+  componentDidUpdate() {
+    console.log('ppppppp',this.props.wordToGuess)
+  }
+
+  // NOTE: event parameter is default, because it's handleKeyPress function
+  // is being used as a callback to an event listener.
   handleKeyPress(e) {
     console.log('event', e.key);
     this.props.setLetter(e.key);
@@ -33,10 +37,16 @@ class Videogames extends React.Component {
 
   render() {
     // NOTE: set conditionals/code here!
+    // TODO: pick videogame theme background image
     return (
       <div>
-        <Header />
-
+        <HeaderGames />
+        <GuessArea
+          wordToGuess = {this.props.wordToGuess}
+        />
+        <Streak
+          winStreak = {this.props.winStreak}
+        />
       </div>
     )
   }

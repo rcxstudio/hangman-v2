@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect} from 'react-router-dom';
+
 import helpers from './utils/helpers';
 import Themes from './children/Themes.jsx';
 import Videogames from './children/Videogames.jsx';
@@ -103,7 +104,6 @@ class Main extends React.Component {
   render() {
     return(
       <div>
-        <img id="background-image" src="./images/landscape-web.jpg" alt="landscape image" />
         <main>
           <Switch>
             <Route exact path="/" component={Themes} />
@@ -111,6 +111,8 @@ class Main extends React.Component {
               <Videogames
                 themes = {this.state.themes}
                 letters = {this.state.letters}
+                wordToGuess = {this.state.wordToGuess}
+                winStreak = {this.state.winStreak}
                 setLetter = {this.setLetter}
                 setWord = {this.setWord}
                 setTheme = {this.setTheme}
