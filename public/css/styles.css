@@ -19,58 +19,12 @@ html {
 }
 
 /*TODO: Remove when functioning*/
-li {
-  font-size: 2rem;
-  color: white;
+span[data-toggle="active"] {
+	color: gray;
 }
 
-header {
-  background-color: gray;
-}
-
-textarea {
-  margin-bottom: 2rem;
-}
-
-.auth-buttons {
-  width: 100%
-}
-
-#login-wrap {
-  background-color: var(--gray);
-  height: 32rem;
-  margin-top: 25%;
-  padding-top: 2rem;
-  box-shadow: 0 var(--drop-shadow-size) var(--drop-shadow-size) var(--drop-shadow-color);
-}
-
-#signup-wrap {
-  background-color: var(--gray);
-  height: 38rem;
-  margin-top: 25%;
-  padding-top: 2rem;
-}
-
-
-#background-image {
-  /* Set rules to fill background */
-  min-height: 100%;
-  min-width: 1024px;
-
-  /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
-
-  /* Set up positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -99;
-}
-
-#render-msg-wrap .panel-body{
-  height: 25rem;
-  overflow: scroll;
+span[data-toggle="inactive"] {
+	color: black;
 }
 
 /* Media Queries Section */

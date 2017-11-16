@@ -31,14 +31,19 @@ class WordBank extends React.Component {
           <h3 className="panel-title ">Letter Bank</h3>
         </div>
         <div className="panel-body">
-          {/*TODO: Change below to show the letter bank!*/}
+          {/*TODO: Pass state for wrong letters so conditionals below can check if letter is pressed && part of the wrong letters
+          */}
+          {/*NOTE: There might be a more efficient way of doing this?*/}
           {Object.keys(this.props.letters).map((key, i) => {
             if (this.props.letters[key]) {
-              return <p key={key}>a</p>;
+              console.log('running');
+              return <span key={key} data-toggle="active">{key.toUpperCase()} </span>;
             }
-            else return <p key={key}>b</p>;
+            else {
+              console.log('each letter ran');
+              return <span key={key} data-toggle="inactive">{key.toUpperCase()} </span>;
             }
-          )}
+          })}
         </div>
       </div>
   )}
