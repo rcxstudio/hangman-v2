@@ -25,7 +25,6 @@ class WordBank extends React.Component {
   }
 
   render() {
-    // TODO: function to replace streak count
     return (
       <div className="panel panel-default">
         <div className="panel-heading">
@@ -33,7 +32,13 @@ class WordBank extends React.Component {
         </div>
         <div className="panel-body">
           {/*TODO: Change below to show the letter bank!*/}
-          {this.props.letters.a}
+          {Object.keys(this.props.letters).map((key, i) => {
+            if (this.props.letters[key]) {
+              return <p key={key}>a</p>;
+            }
+            else return <p key={key}>b</p>;
+            }
+          )}
         </div>
       </div>
   )}
