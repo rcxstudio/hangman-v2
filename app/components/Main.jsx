@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect} from 'react-router-dom';
+
 import helpers from './utils/helpers';
 import Themes from './children/Themes.jsx';
 import Videogames from './children/Videogames.jsx';
@@ -12,7 +13,7 @@ class Main extends React.Component {
       themes: {
         videogames: false,
         sciFi: false,
-        fantasy: false,
+        fantasy: false
       },
       letters: {
         a: false,
@@ -43,6 +44,7 @@ class Main extends React.Component {
         z: false
       },
       wordToGuess: '',
+      usedWords: [],
       wrongLetters:[],
       correctLetters: [],
       guessesLeft: 6,
@@ -51,9 +53,14 @@ class Main extends React.Component {
     }
 
     this.setLetter = this.setLetter.bind(this);
+    this.setWord = this.setWord.bind(this);
+    this.setTheme = this.setTheme.bind(this);
   }
   // React Lifecycle functions
-
+  componentDidUpdate() {
+    console.log(this.state.wordToGuess);
+    console.table(this.state.themes);
+  }
 
   // Custom functions
   setLetter(guessedLetter) {
@@ -68,14 +75,35 @@ class Main extends React.Component {
     }
   }
 
+  setTheme(selectedTheme) {
+    let updatedTheme = {
+      videogames: false,
+      sciFi: false,
+      fantasy: false
+    };
+    switch(selectedTheme) {
+      case 'videogames':
+        updatedTheme.videogames = true;
+        this.setState({ themes: updatedTheme });
+        break;
+      case 'sciFi':
+        updatedTheme.sciFi = true;
+        this.setState({ themes: updatedTheme })
+        break;
+      default:
+        updatedTheme.fantasy = true;
+        this.setState({ themes: updatedTheme })
+        break;
+    }
+  }
+
   setWord(word) {
-    
+    this.setState({ wordToGuess: word })
   }
 
   render() {
     return(
       <div>
-        <img id="background-image" src="./images/landscape-web.jpg" alt="landscape image" />
         <main>
           <Switch>
             <Route exact path="/" component={Themes} />
@@ -83,7 +111,12 @@ class Main extends React.Component {
               <Videogames
                 themes = {this.state.themes}
                 letters = {this.state.letters}
+                wordToGuess = {this.state.wordToGuess}
+                winStreak = {this.state.winStreak}
+                guessesLeft = {this.state.guessesLeft}
                 setLetter = {this.setLetter}
+                setWord = {this.setWord}
+                setTheme = {this.setTheme}
               />
             )} />
           </Switch>
