@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import helpers from '../utils/helpers.js';
+import helpers from '../../utils/helpers.js';
 
 class Streak extends React.Component {
   constructor(props){
@@ -16,11 +16,11 @@ class Streak extends React.Component {
   }
 
   componentDidMount() {
-    console.log('GRANDKID on mount!', this.props.wordToGuess)
+    // console.log('GRANDKID on mount!', this.props.wordToGuess)
   }
 
   componentDidUpdate() {
-    console.log('GRANDKID on update!', this.props.wordToGuess)
+    // console.log('GRANDKID on update!', this.props.wordToGuess)
   }
 
   render() {

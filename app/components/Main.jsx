@@ -113,6 +113,7 @@ class Main extends React.Component {
                 letters = {this.state.letters}
                 wordToGuess = {this.state.wordToGuess}
                 winStreak = {this.state.winStreak}
+                guessesLeft = {this.state.guessesLeft}
                 setLetter = {this.setLetter}
                 setWord = {this.setWord}
                 setTheme = {this.setTheme}

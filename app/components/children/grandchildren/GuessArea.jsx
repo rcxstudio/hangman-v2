@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import helpers from '../utils/helpers.js';
+import helpers from '../../utils/helpers.js';
 
 class GuessArea extends React.Component {
   constructor(props){
@@ -26,19 +26,15 @@ class GuessArea extends React.Component {
   render() {
     // TODO: Set a variable here so underscores can replace the word to guess
     return (
-      <div className="container">
-        <section className="row">
-          <div className="col-md-12 text-center">
-            <div className="panel panel-default ">
-              <div className="panel-heading">
-                <h3 className="panel-title ">Hidden Word</h3>
-              </div>
-              <div className="panel-body">
-                _____ _____ ______ _____
-              </div>
-            </div>
+      <div>
+        <div className="panel panel-default ">
+          <div className="panel-heading">
+            <h3 className="panel-title ">Hidden Word</h3>
           </div>
-        </section>
+          <div className="panel-body">
+            _____ _____ ______ _____
+          </div>
+        </div>
       </div>
   )}
 }

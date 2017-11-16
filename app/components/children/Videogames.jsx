@@ -1,9 +1,11 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
-import HeaderGames from './HeaderGames.jsx';
-import GuessArea from './GuessArea.jsx';
-import Streak from './Streak.jsx';
+import HeaderGames from './grandchildren/HeaderGames.jsx';
+import GuessArea from './grandchildren/GuessArea.jsx';
+import Streak from './grandchildren/Streak.jsx';
+import Guesses from './grandchildren/Guesses.jsx';
+import WordBank from './grandchildren/WordBank.jsx';
 import helpers from '../utils/helpers';
 
 class Videogames extends React.Component {
@@ -41,12 +43,35 @@ class Videogames extends React.Component {
     return (
       <div>
         <HeaderGames />
-        <GuessArea
-          wordToGuess = {this.props.wordToGuess}
-        />
-        <Streak
-          winStreak = {this.props.winStreak}
-        />
+        <section className="container">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <GuessArea
+                wordToGuess = {this.props.wordToGuess}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-4 text-center">
+              <Streak
+                winStreak = {this.props.winStreak}
+              />
+            </div>
+            <div className="col-md-4 text-center">
+              <Guesses
+                guessesLeft = {this.props.guessesLeft}
+              />
+            </div>
+            <div className="col-md-4 text-center">
+              <WordBank
+                letters = {this.props.letters}
+              />
+            </div>
+          </div>
+        </section>
+
+
+
       </div>
     )
   }
