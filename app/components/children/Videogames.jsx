@@ -19,6 +19,7 @@ class Videogames extends React.Component {
     document.addEventListener('keypress', this.handleKeyPress);
     // TODO: change argument below to read from database
     this.props.setWord('hello');
+    this.props.setTheme('videogames');
   }
 
   componentWillUnmount() {
@@ -35,6 +36,7 @@ class Videogames extends React.Component {
     return (
       <div>
         <Header />
+
       </div>
     )
   }

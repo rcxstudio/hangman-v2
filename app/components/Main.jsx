@@ -12,7 +12,7 @@ class Main extends React.Component {
       themes: {
         videogames: false,
         sciFi: false,
-        fantasy: false,
+        fantasy: false
       },
       letters: {
         a: false,
@@ -53,10 +53,12 @@ class Main extends React.Component {
 
     this.setLetter = this.setLetter.bind(this);
     this.setWord = this.setWord.bind(this);
+    this.setTheme = this.setTheme.bind(this);
   }
   // React Lifecycle functions
   componentDidUpdate() {
     console.log(this.state.wordToGuess);
+    console.table(this.state.themes);
   }
 
   // Custom functions
@@ -72,8 +74,30 @@ class Main extends React.Component {
     }
   }
 
+  setTheme(selectedTheme) {
+    let updatedTheme = {
+      videogames: false,
+      sciFi: false,
+      fantasy: false
+    };
+    switch(selectedTheme) {
+      case 'videogames':
+        updatedTheme.videogames = true;
+        this.setState({ themes: updatedTheme });
+        break;
+      case 'sciFi':
+        updatedTheme.sciFi = true;
+        this.setState({ themes: updatedTheme })
+        break;
+      default:
+        updatedTheme.fantasy = true;
+        this.setState({ themes: updatedTheme })
+        break;
+    }
+  }
+
   setWord(word) {
-    this.setState({wordToGuess: word})
+    this.setState({ wordToGuess: word })
   }
 
   render() {
@@ -89,6 +113,7 @@ class Main extends React.Component {
                 letters = {this.state.letters}
                 setLetter = {this.setLetter}
                 setWord = {this.setWord}
+                setTheme = {this.setTheme}
               />
             )} />
           </Switch>
