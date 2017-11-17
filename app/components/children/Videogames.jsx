@@ -18,9 +18,9 @@ class Videogames extends React.Component {
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyPress);
     // TODO: change argument below to read from database
-    helpers.retrieveVideoGames('Video Games').then(res => {
-      console.log(res);
-      this.props.setWord(res);
+    helpers.retrieveVideoGames().then(res => {
+      console.log('videogame mount',res);
+      // this.props.setWord(res);
     });
     this.props.setTheme('videogames');
 

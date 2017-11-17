@@ -2,18 +2,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const mongoose = require("mongoose");
-const logger = require("morgan");
+const mongoose = require('mongoose');
+const logger = require('morgan');
 const path = require('path');
 
 // Sets mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(logger("dev")); // what is this?
+app.use(logger('dev')); // what is this?
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
@@ -24,7 +24,6 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-const Theme = require('./models/Theme.js');
 //TODO: add the heroku link below
 //database logic
 // if (process.env.MONGODB_URI || process.env.NODE_ENV === 'production') mongoose.connect(process.env.MONGODB_URI);
@@ -34,6 +33,7 @@ const promise = mongoose.connect('mongodb://localhost/hangman', {
   /* other options */
 });
 
+const Theme = require('./models/Theme.js');
 const db = mongoose.connection;
 
 db.on("error", (error) => {
@@ -49,13 +49,14 @@ db.once("open", () => {
 
 app.get('/api/videogames', (req, res) => {
   console.log('TRIGGER');
-  console.log(req.body);
-  Theme.findOne({ theme: 'Video Games'}, (err, foundWords) => {
+  // TODO: find issue with database here.
+  // Why doesn't Theme Schema work? Theme.findOne()
+  mongoose.model('Theme').findOne({ theme: 'Video Games'}, (err, foundWords) => {
     /* NOTE: foundWords is an object containing a lot of information. If you want to access just the contents you are "expecting", then you need to call on foundUser.data to access the specific content that is being sent back in res.send()*/
     if (err) throw err;
     else {
-      console.log('helper!', foundWords.data);
-      res.send(foundWords.data.themeBank);
+      console.log('helper!', foundWords);
+      res.send(foundWords);
     }
   })
 });
@@ -67,6 +68,6 @@ app.get('/*', (req, res) => {
 });
 //END OF ROUTES
 
-app.listen(PORT, () => {
-  console.log("App running on port 3000!");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

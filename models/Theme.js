@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const ThemeSchema = new Schema({
+const themeSchema = new Schema({
   theme: {
     type: String,
     unique: true
@@ -15,5 +15,5 @@ const ThemeSchema = new Schema({
   ]
 });
 
-const Theme = mongoose.model('Theme', ThemeSchema);
+const Theme = mongoose.model('Theme', themeSchema);
 module.export = Theme;
