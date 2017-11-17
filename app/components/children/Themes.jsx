@@ -16,7 +16,7 @@ class Themes extends React.Component {
   render () {
     return(
       <div>
-        <img id="background-image" src="./images/landscape-web.jpg" alt="landscape image" />
+        <img className="background-image" src="./images/landscape-web.jpg" alt="landscape image" />
         <Header />
         <ul>
           <li><Link to="/videogames">Video Games</Link></li>

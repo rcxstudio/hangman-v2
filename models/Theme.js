@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const ThemeSchema = new Schema({
+const themeSchema = new Schema({
   theme: {
     type: String,
     unique: true
@@ -15,5 +15,7 @@ const ThemeSchema = new Schema({
   ]
 });
 
-const Theme = mongoose.model('Theme', ThemeSchema);
-module.export = Theme;
+
+
+const Theme = mongoose.model('Theme', themeSchema);
+module.exports = Theme;

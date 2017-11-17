@@ -2,18 +2,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const mongoose = require("mongoose");
-const logger = require("morgan");
+const mongoose = require('mongoose');
+const logger = require('morgan');
 const path = require('path');
 
 // Sets mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(logger("dev")); // what is this?
+app.use(logger('dev')); // what is this?
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
@@ -23,17 +23,18 @@ app.use(methodOverride('_method'));
 //NOTE: with webpack, bundle.js needs to be in the public folder...check docs
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //TODO: add the heroku link below
 //database logic
 // if (process.env.MONGODB_URI || process.env.NODE_ENV === 'production') mongoose.connect(process.env.MONGODB_URI);
-// else mongoose.connect("mongodb://localhost/testUserDB");
+// else mongoose.connect("mongodb://localhost/hangman");
 const promise = mongoose.connect('mongodb://localhost/hangman', {
   useMongoClient: true,
   /* other options */
 });
 
+const Theme = require('./models/Theme.js');
 const db = mongoose.connection;
-module.export = db; // NOTE: is this needed for other file routes to work?
 
 db.on("error", (error) => {
   console.log("Mongoose Error: ", error);
@@ -43,29 +44,28 @@ db.once("open", () => {
   console.log("Mongoose connection successful.");
 });
 
-
-
-// NOTE: Routes import. is this possible?
-// const router = require('./controllers/routes.js');
-// above line doesn't actually do anything except set the routes to a constant called "router".
-
 // NOTE: BACKEND ROUTES HAPPEN HERE!
 // "html-routes" are handled by react-router
-// app.get('/', function (req, res) {
-//   res.send('index')
-// });
 
-app.get('/dashboard/:user/:theme', function (req, res) {
-  res.send('hello')
+app.get('/api/videogames', (req, res) => {
+  console.log('TRIGGER');
+  Theme.findOne({ theme: 'Video Games'}, (err, foundWords) => {
+    /* NOTE: foundWords is an object containing a lot of information. If you want to access just the contents you are "expecting", then you need to call on foundUser.data to access the specific content that is being sent back in res.send()*/
+    if (err) throw err;
+    else {
+      console.log('helper!', foundWords);
+      res.send(foundWords);
+    }
+  })
 });
 
-// NOTE: THIS IS THE CATCHALL ROUTE AND MUST BE PLACED AT THE END OF THE ROUTES.
-// Allows react-router to refresh page
-app.get('/*', function (req, res) {
+// NOTE: THIS IS THE CATCHALL ROUTE AND MUST BE PLACED AT THE END OF THE ROUTES!
+// NOTE: Allows react-router to refresh page also!
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 //END OF ROUTES
 
-app.listen(PORT, () => {
-  console.log("App running on port 3000!");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

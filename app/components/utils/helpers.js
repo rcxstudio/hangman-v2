@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const helpers = {
-  // Looks up all public messages
   retrieveVideoGames: () => {
     return axios.get('/api/videogames').then(res => {
-      return res;
+      // TODO: change index value to a random number based on the length.
+      return res.data.themeBank[0];
     })
   },
 }

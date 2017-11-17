@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import helpers from '../../utils/helpers.js';
 
-class WordBank extends React.Component {
+class LetterBank extends React.Component {
   constructor(props){
     super(props);
 
@@ -49,4 +49,4 @@ class WordBank extends React.Component {
   )}
 }
 
-export default WordBank;
+export default LetterBank;
