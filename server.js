@@ -49,9 +49,7 @@ db.once("open", () => {
 
 app.get('/api/videogames', (req, res) => {
   console.log('TRIGGER');
-  // TODO: find issue with database here.
-  // Why doesn't Theme Schema work? Theme.findOne()
-  mongoose.model('Theme').findOne({ theme: 'Video Games'}, (err, foundWords) => {
+  Theme.findOne({ theme: 'Video Games'}, (err, foundWords) => {
     /* NOTE: foundWords is an object containing a lot of information. If you want to access just the contents you are "expecting", then you need to call on foundUser.data to access the specific content that is being sent back in res.send()*/
     if (err) throw err;
     else {

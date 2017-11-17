@@ -20,7 +20,7 @@ class Videogames extends React.Component {
     // TODO: change argument below to read from database
     helpers.retrieveVideoGames().then(res => {
       console.log('videogame mount',res);
-      // this.props.setWord(res);
+      this.props.setWord(res);
     });
     this.props.setTheme('videogames');
 

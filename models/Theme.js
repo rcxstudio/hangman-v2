@@ -15,5 +15,7 @@ const themeSchema = new Schema({
   ]
 });
 
+
+
 const Theme = mongoose.model('Theme', themeSchema);
-module.export = Theme;
+module.exports = Theme;

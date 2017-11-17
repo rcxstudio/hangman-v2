@@ -3,8 +3,8 @@ import axios from 'axios';
 const helpers = {
   retrieveVideoGames: () => {
     return axios.get('/api/videogames').then(res => {
-      console.log('res', res)
-      return res;
+      // TODO: change index value to a random number based on the length.
+      return res.data.themeBank[0];
     })
   },
 }
