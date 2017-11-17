@@ -20,11 +20,17 @@ html {
 
 /*TODO: Remove when functioning*/
 span[data-toggle="active"] {
-	color: gray;
+	color: red;
 }
 
 span[data-toggle="inactive"] {
 	color: black;
+}
+
+.background-image {
+	position: fixed;
+	z-index: -99;
+
 }
 
 /* Media Queries Section */

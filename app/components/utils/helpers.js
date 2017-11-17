@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const helpers = {
-  // Looks up all public messages
   retrieveVideoGames: () => {
     return axios.get('/api/videogames').then(res => {
+      console.log('res', res)
       return res;
     })
   },

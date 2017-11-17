@@ -5,7 +5,7 @@ import HeaderGames from './grandchildren/HeaderGames.jsx';
 import GuessArea from './grandchildren/GuessArea.jsx';
 import Streak from './grandchildren/Streak.jsx';
 import Guesses from './grandchildren/Guesses.jsx';
-import WordBank from './grandchildren/WordBank.jsx';
+import LetterBank from './grandchildren/LetterBank.jsx';
 import helpers from '../utils/helpers';
 
 class Videogames extends React.Component {
@@ -18,8 +18,12 @@ class Videogames extends React.Component {
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyPress);
     // TODO: change argument below to read from database
-    this.props.setWord('hello');
+    helpers.retrieveVideoGames('Video Games').then(res => {
+      console.log(res);
+      this.props.setWord(res);
+    });
     this.props.setTheme('videogames');
+
   }
 
   componentWillUnmount() {
@@ -27,7 +31,7 @@ class Videogames extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('ppppppp',this.props.wordToGuess)
+    console.log('Update from Videogames',this.props.wordToGuess)
   }
 
   // NOTE: event parameter is default, because it's handleKeyPress function
@@ -63,15 +67,12 @@ class Videogames extends React.Component {
               />
             </div>
             <div className="col-md-4 text-center">
-              <WordBank
+              <LetterBank
                 letters = {this.props.letters}
               />
             </div>
           </div>
         </section>
-
-
-
       </div>
     )
   }
