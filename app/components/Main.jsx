@@ -44,6 +44,7 @@ class Main extends React.Component {
         z: false
       },
       wordToGuess: '',
+      wordBank: [],
       usedWords: [],
       wrongLetters:[],
       correctLetters: [],
@@ -53,6 +54,7 @@ class Main extends React.Component {
     }
 
     this.setLetter = this.setLetter.bind(this);
+    this.setWordBank = this.setWordBank.bind(this);
     this.setWord = this.setWord.bind(this);
     this.setTheme = this.setTheme.bind(this);
   }
@@ -97,6 +99,10 @@ class Main extends React.Component {
     }
   }
 
+  setWordBank(wordBankReceived) {
+    this.setState({ wordBank: wordBankReceived })
+  }
+
   setWord(word) {
     this.setState({ wordToGuess: word })
   }
@@ -112,9 +118,11 @@ class Main extends React.Component {
                 themes = {this.state.themes}
                 letters = {this.state.letters}
                 wordToGuess = {this.state.wordToGuess}
+                wordBank = {this.state.wordBank}
                 winStreak = {this.state.winStreak}
                 guessesLeft = {this.state.guessesLeft}
                 setLetter = {this.setLetter}
+                setWordBank = {this.setWordBank}
                 setWord = {this.setWord}
                 setTheme = {this.setTheme}
               />

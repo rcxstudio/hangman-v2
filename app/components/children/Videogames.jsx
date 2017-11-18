@@ -18,9 +18,9 @@ class Videogames extends React.Component {
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyPress);
     // TODO: change argument below to read from database
-    helpers.retrieveVideoGames().then(res => {
-      console.log('videogame mount',res.data[0]);
-      this.props.setWord(res.data[0]);
+    helpers.retrieveVideogame().then(res => {
+      console.log('videogame mount',res.data);
+      this.props.setWordBank(res.data);
     });
     this.props.setTheme('videogames');
 
@@ -31,7 +31,8 @@ class Videogames extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('Update from Videogames',this.props.wordToGuess)
+    console.log('Update from Videogames wordToGuess',this.props.wordToGuess)
+    console.log('Update from Videogames wordbank',this.props.wordBank)
   }
 
   // NOTE: event parameter is default, because it's handleKeyPress function

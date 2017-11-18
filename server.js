@@ -47,13 +47,14 @@ db.once("open", () => {
 // NOTE: BACKEND ROUTES HAPPEN HERE!
 // "html-routes" are handled by react-router
 
-app.get('/api/videogames', (req, res) => {
+app.get('/api/:theme', (req, res) => {
   console.log('TRIGGER');
   // NOTE: to 'hard check' the databbase, use mongoose.model('<name of collection>').findOne()...
-  Theme.findOne({ theme: 'Video Games'}, (err, foundWords) => {
+  Theme.findOne({ theme: req.params.theme}, (err, foundWords) => {
     /* NOTE: foundWords is an object containing a lot of information. If you want to access just the contents you are "expecting", then you need to call on foundUser.data to access the specific content that is being sent back in res.send()*/
     if (err) throw err;
     else {
+      // TODO: set conditional for no theme found.
       console.log('helper!', foundWords.themeBank);
       res.send(foundWords.themeBank);
     }
