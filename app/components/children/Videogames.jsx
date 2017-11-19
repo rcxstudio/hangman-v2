@@ -18,12 +18,23 @@ class Videogames extends React.Component {
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyPress);
     // TODO: change argument below to read from database
-    helpers.retrieveVideoGames().then(res => {
-      console.log('videogame mount',res);
-      this.props.setWord(res);
+    helpers.retrieveVideogame().then(res => {
+      console.log('videogame mount',res.data);
+      const receivedWordBank = res.data;
+      const objWordBank = {};
+      console.log(res.data);
+      for (let i = 0; i < receivedWordBank.length; i++) {
+        objWordBank[receivedWordBank[i]] = false;
+      };
+      // NOTE: below portion of code used to reduce the wordBank so no duplicates occur for user.
+      const keys = Object.keys(objWordBank);
+      const starterWord = keys[Math.floor(Math.random() * keys.length)];
+      this.props.setWord(starterWord);
+      delete objWordBank[starterWord];
+      this.props.setWordBank(objWordBank);
+      console.log('wordBank from Main', this.props.wordBank)
     });
     this.props.setTheme('videogames');
-
   }
 
   componentWillUnmount() {
@@ -31,7 +42,11 @@ class Videogames extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('Update from Videogames',this.props.wordToGuess)
+    console.log('Update from Videogames wordToGuess',this.props.wordToGuess)
+    console.log('Update from Videogames wordbank',this.props.wordBank)
+    // Check length of wordBank and create a local variable object that stores the index values (true means value was already used.)
+
+
   }
 
   // NOTE: event parameter is default, because it's handleKeyPress function
