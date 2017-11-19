@@ -60,7 +60,6 @@ class Main extends React.Component {
   // React Lifecycle functions
   componentDidUpdate() {
     console.log(this.state.wordToGuess);
-    console.table(this.state.themes);
   }
 
   // Custom functions

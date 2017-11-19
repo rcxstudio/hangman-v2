@@ -19,10 +19,9 @@ class Videogames extends React.Component {
     document.addEventListener('keypress', this.handleKeyPress);
     // TODO: change argument below to read from database
     helpers.retrieveVideogame().then(res => {
-      console.log('videogame mount',res.data);
-      const receivedWordBank = res.data;
+      this.props.setTheme(res.data.theme);
+      const receivedWordBank = res.data.themeBank;
       const objWordBank = {};
-      console.log(res.data);
       for (let i = 0; i < receivedWordBank.length; i++) {
         objWordBank[receivedWordBank[i]] = false;
       };
@@ -32,9 +31,7 @@ class Videogames extends React.Component {
       this.props.setWord(starterWord);
       delete objWordBank[starterWord];
       this.props.setWordBank(objWordBank);
-      console.log('wordBank from Main', this.props.wordBank)
     });
-    this.props.setTheme('videogames');
   }
 
   componentWillUnmount() {
