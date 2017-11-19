@@ -20,11 +20,14 @@ class Videogames extends React.Component {
     // TODO: change argument below to read from database
     helpers.retrieveVideogame().then(res => {
       console.log('videogame mount',res.data);
+      let wordCount = res.data.length;
       const receivedUsedWordsIndex = {};
+      for (let i = 0; i < wordCount; i++) {
+        receivedUsedWordsIndex[i] = false;
+      }
       this.props.setWordBank(res.data);
-      this.
-
-
+      this.props.setUsedWordsIndex(receivedUsedWordsIndex);
+      console.log(receivedUsedWordsIndex);
     });
     this.props.setTheme('videogames');
 

@@ -104,8 +104,8 @@ class Main extends React.Component {
     this.setState({ wordBank: wordBankReceived })
   }
 
-  setUsedWordsIndex(i) {
-    // this.setState({ usedWordsIndex: )
+  setUsedWordsIndex(usedWordsIndexReceived) {
+    this.setState({ usedWordsIndex: usedWordsIndexReceived });
   }
 
   setWord(word) {
@@ -128,6 +128,7 @@ class Main extends React.Component {
                 guessesLeft = {this.state.guessesLeft}
                 setLetter = {this.setLetter}
                 setWordBank = {this.setWordBank}
+                setUsedWordsIndex = {this.setUsedWordsIndex}
                 setWord = {this.setWord}
                 setTheme = {this.setTheme}
               />
