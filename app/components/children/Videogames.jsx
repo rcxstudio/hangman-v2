@@ -20,7 +20,11 @@ class Videogames extends React.Component {
     // TODO: change argument below to read from database
     helpers.retrieveVideogame().then(res => {
       console.log('videogame mount',res.data);
+      const receivedUsedWordsIndex = {};
       this.props.setWordBank(res.data);
+      this.
+
+
     });
     this.props.setTheme('videogames');
 
@@ -33,6 +37,9 @@ class Videogames extends React.Component {
   componentDidUpdate() {
     console.log('Update from Videogames wordToGuess',this.props.wordToGuess)
     console.log('Update from Videogames wordbank',this.props.wordBank)
+    // Check length of wordBank and create a local variable object that stores the index values (true means value was already used.)
+
+
   }
 
   // NOTE: event parameter is default, because it's handleKeyPress function
