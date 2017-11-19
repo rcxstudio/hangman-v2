@@ -20,17 +20,21 @@ class Videogames extends React.Component {
     // TODO: change argument below to read from database
     helpers.retrieveVideogame().then(res => {
       console.log('videogame mount',res.data);
-      let wordCount = res.data.length;
-      const receivedUsedWordsIndex = {};
-      for (let i = 0; i < wordCount; i++) {
-        receivedUsedWordsIndex[i] = false;
-      }
-      this.props.setWordBank(res.data);
-      this.props.setUsedWordsIndex(receivedUsedWordsIndex);
-      console.log(receivedUsedWordsIndex);
+      const receivedWordBank = res.data;
+      const objWordBank = {};
+      console.log(res.data);
+      for (let i = 0; i < receivedWordBank.length; i++) {
+        objWordBank[receivedWordBank[i]] = false;
+      };
+      // NOTE: below portion of code used to reduce the wordBank so no duplicates occur for user.
+      const keys = Object.keys(objWordBank);
+      const starterWord = keys[Math.floor(Math.random() * keys.length)];
+      this.props.setWord(starterWord);
+      delete objWordBank[starterWord];
+      this.props.setWordBank(objWordBank);
+      console.log('wordBank from Main', this.props.wordBank)
     });
     this.props.setTheme('videogames');
-
   }
 
   componentWillUnmount() {
