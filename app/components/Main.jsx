@@ -60,7 +60,6 @@ class Main extends React.Component {
   // React Lifecycle functions
   componentDidUpdate() {
     console.log(this.state.wordToGuess);
-    console.table(this.state.themes);
   }
 
   // Custom functions
@@ -91,9 +90,13 @@ class Main extends React.Component {
         updatedTheme.sciFi = true;
         this.setState({ themes: updatedTheme })
         break;
-      default:
+      case 'fantasy':
         updatedTheme.fantasy = true;
         this.setState({ themes: updatedTheme })
+        break;
+      default:
+        // TODO: find a different way to trigger error message to user
+        alert('Sorry, but theme does not exist');
         break;
     }
   }
