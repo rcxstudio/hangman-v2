@@ -25,6 +25,8 @@ class GuessArea extends React.Component {
 
   render() {
     // TODO: Set a variable here so underscores can replace the word to guess
+    let hidden = '_';
+
     return (
       <div>
         <div className="panel panel-default ">
@@ -32,7 +34,7 @@ class GuessArea extends React.Component {
             <h3 className="panel-title ">Hidden Word</h3>
           </div>
           <div className="panel-body">
-            _____ _____ ______ _____
+            {hidden}
           </div>
         </div>
       </div>
