@@ -18,14 +18,10 @@ class GuessArea extends React.Component {
     console.log('GRANDKID on mount!', this.props.wordToGuess);
   }
 
-  componentDidUpdate() {
-    console.log('GRANDKID on update!', this.props.wordToGuess);
-    // NOTE: infinite loop triggers when I setState()
-    if (this.props.wordToGuess !== '') {
-      console.log('word decided.');
+  shoudlComponentUpdate(nextProps, nextState) {
       // const underscore = '_'.repeat(this.props.wordToGuess.length);
       // this.setState({display: underscore})
-    }
+
   }
 
   componentWillUnmount() {
@@ -47,11 +43,6 @@ class GuessArea extends React.Component {
   }
 
   render() {
-    // TODO: Set a variable here so underscores can replace the word to guess
-    let hidden = '_' + ' ';
-    // Check if all letters are false, then
-
-    // Show all underscores if they are.
     return (
       <div>
         <div className="panel panel-default ">
