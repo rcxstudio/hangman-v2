@@ -20,14 +20,12 @@ class GuessArea extends React.Component {
 
   componentDidUpdate() {
     console.log('GRANDKID on update!', this.props.wordToGuess);
-    // NOTE: infinite loop in below code for the updates
-    // if (this.props.wordToGuess !== '') {
-    //   const underscore = '_'.repeat(this.props.wordToGuess.length);
-    //   this.setState({display: underscore})
-    // }
-    // else {
-    //   this.setState({display: 'Waiting for word...'})
-    // }
+    // NOTE: infinite loop triggers when I setState()
+    if (this.props.wordToGuess !== '') {
+      console.log('word decided.');
+      // const underscore = '_'.repeat(this.props.wordToGuess.length);
+      // this.setState({display: underscore})
+    }
   }
 
   componentWillUnmount() {
