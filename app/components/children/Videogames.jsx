@@ -11,27 +11,6 @@ import helpers from '../utils/helpers';
 class Videogames extends React.Component {
   constructor(props){
     super(props);
-
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener('keypress', this.handleKeyPress);
-    // TODO: change argument below to read from database
-    helpers.retrieveVideogame().then(res => {
-      this.props.setTheme(res.data.theme);
-      const receivedWordBank = res.data.themeBank;
-      const objWordBank = {};
-      for (let i = 0; i < receivedWordBank.length; i++) {
-        objWordBank[receivedWordBank[i]] = false;
-      };
-      // NOTE: below portion of code used to reduce the wordBank so no duplicates occur for user.
-      const keys = Object.keys(objWordBank);
-      const starterWord = keys[Math.floor(Math.random() * keys.length)];
-      this.props.setWord(starterWord);
-      delete objWordBank[starterWord];
-      this.props.setWordBank(objWordBank);
-    });
   }
 
   componentWillUnmount() {
@@ -42,7 +21,7 @@ class Videogames extends React.Component {
   // is being used as a callback to an event listener.
   handleKeyPress(e) {
     console.log('event', e.key);
-    this.props.setLetter(e.key);
+
   }
 
   render() {
@@ -56,6 +35,11 @@ class Videogames extends React.Component {
             <div className="col-md-12 text-center">
               <GuessArea
                 wordToGuess = {this.props.wordToGuess}
+                usedLetters = {this.props.letters}
+                setTheme = {this.props.setTheme}
+                setWord = {this.props.setWord}
+                setWordBank = {this.props.setWordBank}
+                setLetter = {this.props.setLetter}
               />
             </div>
           </div>

@@ -69,7 +69,6 @@ class Main extends React.Component {
     if (guessedLetter in this.state.letters) {
       const updatedLetters = this.state.letters;
       updatedLetters[guessedLetter] = true;
-      console.table(updatedLetters);
       // NOTE: you can use variables as keys if you use bracket notation
       this.setState({ letters: updatedLetters })
     }

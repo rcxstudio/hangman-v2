@@ -19,11 +19,6 @@ class LetterBank extends React.Component {
     // console.log('GRANDKID on mount!', this.props.wordToGuess)
   }
 
-  componentDidUpdate() {
-    // console.log('GRANDKID on update!', this.props.wordToGuess)
-    console.log('Updated LetterBank!');
-  }
-
   render() {
     return (
       <div className="panel panel-default">
@@ -36,11 +31,9 @@ class LetterBank extends React.Component {
           {/*NOTE: There might be a more efficient way of doing this?*/}
           {Object.keys(this.props.letters).map((key, i) => {
             if (this.props.letters[key]) {
-              // console.log('running');
               return <span key={key} data-toggle="active">{key.toUpperCase()} </span>;
             }
             else {
-              // console.log('each letter ran');
               return <span key={key} data-toggle="inactive">{key.toUpperCase()} </span>;
             }
           })}
