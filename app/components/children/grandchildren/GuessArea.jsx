@@ -59,21 +59,19 @@ class GuessArea extends React.Component {
   }
 
   handleKeyPress(e) {
-    let word = this.state.display.toUpperCase();
+    let partialWord = this.state.display.toUpperCase();
     let currentKey = e.key.toUpperCase();
-    let inputCorrect = this.state.display.toUpperCase();
 
     console.log(this.state.display.length);
     console.log(this.state.wordCheck.length);
 
-    for (let i = 0; i < word.length; i++) {
+    for (let i = 0; i < partialWord.length; i++) {
       if (currentKey === this.state.wordCheck[i].toUpperCase()) {
         console.log('found it!', this.state.display);
-        // NOTE: why does only the last letter of multiples show up?
-        inputCorrect = inputCorrect.substr(0, i) + currentKey + inputCorrect.substr(i + 1);
+        partialWord = partialWord.substr(0, i) + currentKey + partialWord.substr(i + 1);
       }
     }
-    this.setState({display: inputCorrect});
+    this.setState({display: partialWord});
     this.props.setLetter(e.key.toLowerCase());
   }
 
