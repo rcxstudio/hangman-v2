@@ -8,23 +8,41 @@ class GuessArea extends React.Component {
   constructor(props){
     super(props);
 
-    // this.state = {
-    //   currentUser: ''
-    // }
-    //
-    // this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      display: '',
+    }
+
   }
 
   componentDidMount() {
-    console.log('GRANDKID on mount!', this.props.wordToGuess)
+    console.log('GRANDKID on mount!', this.props.wordToGuess);
   }
 
-  componentDidUpdate() {
-    console.log('GRANDKID on update!', this.props.wordToGuess)
+  shoudlComponentUpdate(nextProps, nextState) {
+      // const underscore = '_'.repeat(this.props.wordToGuess.length);
+      // this.setState({display: underscore})
+
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keypress', this.handleKeyPress);
+  }
+
+  letterCheck() {
+
+  }
+
+  handleKeyPress(e) {
+    console.log('event', e.key);
+    let word = this.props.wordToGuess
+    for (let i = 0; i < word.length; i++) {
+      if (e.key.toLowerCase() === word[i].toLowerCase()) {
+        console.log('found it!');
+      }
+    }
   }
 
   render() {
-    // TODO: Set a variable here so underscores can replace the word to guess
     return (
       <div>
         <div className="panel panel-default ">
@@ -32,7 +50,7 @@ class GuessArea extends React.Component {
             <h3 className="panel-title ">Hidden Word</h3>
           </div>
           <div className="panel-body">
-            _____ _____ ______ _____
+            {this.state.display}
           </div>
         </div>
       </div>

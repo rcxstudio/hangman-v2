@@ -38,17 +38,6 @@ class Videogames extends React.Component {
     document.removeEventListener('keypress', this.handleKeyPress);
   }
 
-  componentDidUpdate() {
-    // TODO: check if the letter guessed is the letter in the word. Avoid duplicates to remove points.
-    // Logic for smaller guesses left included here.
-    // If streak is greater than certain points, guesses start off with less than 6.
-    console.log('Update from Videogames wordToGuess',this.props.wordToGuess)
-    console.log('Update from Videogames wordbank',this.props.wordBank)
-    // Check length of wordBank and create a local variable object that stores the index values (true means value was already used.)
-
-
-  }
-
   // NOTE: event parameter is default, because it's handleKeyPress function
   // is being used as a callback to an event listener.
   handleKeyPress(e) {
