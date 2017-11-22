@@ -12,18 +12,34 @@ class GuessArea extends React.Component {
       display: ''
     }
 
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   componentDidMount() {
-    console.log('GRANDKID on mount!', this.props.wordToGuess);
     document.addEventListener('keypress', this.handleKeyPress);
+    helpers.retrieveVideogame().then(res => {
+      this.props.setTheme(res.data.theme);
+      const receivedWordBank = res.data.themeBank;
+      const objWordBank = {};
+      for (let i = 0; i < receivedWordBank.length; i++) {
+        objWordBank[receivedWordBank[i]] = false;
+      };
+      // NOTE: below portion of code used to reduce the wordBank so no duplicates occur for user.
+      const keys = Object.keys(objWordBank);
+      const starterWord = keys[Math.floor(Math.random() * keys.length)];
+      this.props.setWord(starterWord);
+      delete objWordBank[starterWord];
+      this.props.setWordBank(objWordBank);
+    });
   }
 
   componentDidUpdate() {
-    console.log('updated...')
-    console.log('word decided: ', this.props.wordToGuess);
+    console.log('Updated, word decided: ', this.props.wordToGuess);
     if (this.props.wordToGuess !== this.state.display) {
-      let hiddenLetters = '_ ';
+      let hiddenLetters = [];
+      for (var i = 0; i < array.length; i++) {
+        array[i]
+      }
       this.setState({display : this.props.wordToGuess})
     };
   }
@@ -33,13 +49,13 @@ class GuessArea extends React.Component {
   }
 
   handleKeyPress(e) {
-    console.log('event', e.key);
-    let word = this.props.wordToGuess
+    let word = this.props.wordToGuess;
     for (let i = 0; i < word.length; i++) {
-      if (e.key.toLowerCase() === word[i].toLowerCase()) {
+      if (e.key.toUpperCase() === word[i].toUpperCase()) {
         console.log('found it!');
       }
     }
+    this.props.setLetter(e.key);
   }
 
   render() {
