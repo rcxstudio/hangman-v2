@@ -44,18 +44,10 @@ class GuessArea extends React.Component {
       this.setState({ wordCheck: this.props.wordToGuess }, () => {
         let tempHidden = '';
         for (let i = 0; i < hiddenLetters.length; i++) {
-          if (i === hiddenLetters.length -1) {
+          if (hiddenLetters[i] !== ' ') {
             tempHidden += '_';
           }
-          else if (hiddenLetters[i] !== ' ' && hiddenLetters[i + 1] !== ' ') {
-            tempHidden += '_\xa0';
-          }
-          else if (hiddenLetters[i] === ' ') {
-            tempHidden += '\xa0\xa0\xa0';
-          }
-          else if (hiddenLetters[i] !== ' ') {
-            tempHidden += '_\xa0';
-          }
+          else tempHidden += '\xa0';
         }
         this.setState({ display: tempHidden });
       });
@@ -67,16 +59,22 @@ class GuessArea extends React.Component {
   }
 
   handleKeyPress(e) {
-    let word = this.state.display;
+    let word = this.state.display.toUpperCase();
+    let currentKey = e.key.toUpperCase();
     let inputCorrect;
+
+    console.log(this.state.display.length);
+    console.log(this.state.wordCheck.length);
+
     for (let i = 0; i < word.length; i++) {
-      if (e.key.toUpperCase() === this.state.wordCheck[i].toUpperCase()) {
-        console.log('found it!');
-        inputCorrect = word.substr(0, i) + e.key.toUpperCase() + word.substr(i + 1);
-        this.setState({display: inputCorrect});
+      if (currentKey === this.state.wordCheck[i].toUpperCase()) {
+        console.log('found it!', this.state.display);
+        // NOTE: why does only the last letter of multiples show up?
+        inputCorrect = word.substr(0, i) + currentKey + word.substr(i + 1);
       }
     }
-    this.props.setLetter(e.key);
+    this.setState({display: inputCorrect});
+    this.props.setLetter(e.key.toLowerCase());
   }
 
   render() {
