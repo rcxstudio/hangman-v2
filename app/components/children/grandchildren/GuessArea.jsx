@@ -9,7 +9,8 @@ class GuessArea extends React.Component {
     super(props);
 
     this.state = {
-      display: ''
+      display: '',
+      wordCheck: ''
     }
 
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -35,17 +36,25 @@ class GuessArea extends React.Component {
 
   componentDidUpdate() {
     console.log('Updated, word decided: ', this.props.wordToGuess);
-    if (this.props.wordToGuess !== this.state.display) { //NOTE: Fix conditional 
-      let hiddenLetters = this.state.display;
-      for (let i = 0; i < hiddenLetters.length; i++) {
-        if ((hiddenLetters[i] !== ' ' && hiddenLetters[i + 1] !== ' ') || hiddenLetters[hiddenLetters.length - 1]) {
-          hiddenLetters[i] = '_';
+    console.log('Updated, display: ', this.props.wordToGuess);
+    console.log('Updated, wordCheck: ', this.props.wordToGuess);
+
+    if (this.props.wordToGuess !== this.state.wordCheck) {
+      this.setState({ wordCheck: this.props.wordToGuess }, () => {
+        let hiddenLetters = this.state.wordCheck.slice().join('');
+        for (let i = 0; i < this.state.wordCheck.length; i++) {
+          if ((hiddenLetters[i] !== ' ' && hiddenLetters[i + 1] !== ' ') || hiddenLetters[hiddenLetters.length - 1]) {
+            hiddenLetters[i] = '_';
+            console.log('space', hiddenLetters);
+          }
+          else if (hiddenLetters[i] !== '_' || hiddenLetters[i] !== ' ') {
+            hiddenLetters[i] = '_ ';
+            console.log('letter', hiddenLetters);
+          }
         }
-        else if (hiddenLetters[i] !== '_' || hiddenLetters[i] !== ' ') {
-          hiddenLetters[i] = '_ ';
-        }
-      }
-      this.setState({display: this.props.wordToGuess})
+        this.setState({ display: hiddenLetters });
+      });
+
     };
   }
 
