@@ -16,6 +16,7 @@ class Videogames extends React.Component {
   }
 
   componentDidMount() {
+    // TODO: remove event listener and transfer over to GuessArea
     document.addEventListener('keypress', this.handleKeyPress);
     // TODO: change argument below to read from database
     helpers.retrieveVideogame().then(res => {
@@ -56,6 +57,7 @@ class Videogames extends React.Component {
             <div className="col-md-12 text-center">
               <GuessArea
                 wordToGuess = {this.props.wordToGuess}
+                usedLetters = {this.props.letters}
               />
             </div>
           </div>

@@ -9,13 +9,14 @@ class GuessArea extends React.Component {
     super(props);
 
     this.state = {
-      display: '',
+      display: ''
     }
 
   }
 
   componentDidMount() {
     console.log('GRANDKID on mount!', this.props.wordToGuess);
+    document.addEventListener('keypress', this.handleKeyPress);
   }
 
   componentDidUpdate() {
@@ -25,16 +26,10 @@ class GuessArea extends React.Component {
       let hiddenLetters = '_ ';
       this.setState({display : this.props.wordToGuess})
     };
-  // const underscore = '_'.repeat(this.props.wordToGuess.length);
-  // this.setState({display: underscore})
   }
 
   componentWillUnmount() {
     document.removeEventListener('keypress', this.handleKeyPress);
-  }
-
-  letterCheck() {
-
   }
 
   handleKeyPress(e) {
