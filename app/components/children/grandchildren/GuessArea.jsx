@@ -45,16 +45,16 @@ class GuessArea extends React.Component {
         let tempHidden = '';
         for (let i = 0; i < hiddenLetters.length; i++) {
           if (i === hiddenLetters.length -1) {
-            tempHidden += 'b';
+            tempHidden += '_';
           }
           else if (hiddenLetters[i] !== ' ' && hiddenLetters[i + 1] !== ' ') {
-            tempHidden += 'a ';
+            tempHidden += '_\xa0';
           }
           else if (hiddenLetters[i] === ' ') {
             tempHidden += '\xa0\xa0\xa0';
           }
           else if (hiddenLetters[i] !== ' ') {
-            tempHidden += 'b ';
+            tempHidden += '_\xa0';
           }
         }
         this.setState({ display: tempHidden });
@@ -67,10 +67,13 @@ class GuessArea extends React.Component {
   }
 
   handleKeyPress(e) {
-    let word = this.props.wordToGuess;
+    let word = this.state.display;
+    let inputCorrect;
     for (let i = 0; i < word.length; i++) {
-      if (e.key.toUpperCase() === word[i].toUpperCase()) {
+      if (e.key.toUpperCase() === this.state.wordCheck[i].toUpperCase()) {
         console.log('found it!');
+        inputCorrect = word.substr(0, i) + e.key.toUpperCase() + word.substr(i + 1);
+        this.setState({display: inputCorrect});
       }
     }
     this.props.setLetter(e.key);
