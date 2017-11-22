@@ -19,11 +19,6 @@ class LetterBank extends React.Component {
     // console.log('GRANDKID on mount!', this.props.wordToGuess)
   }
 
-  componentDidUpdate() {
-    // console.log('GRANDKID on update!', this.props.wordToGuess)
-    console.log('Updated LetterBank!');
-  }
-
   render() {
     return (
       <div className="panel panel-default">
