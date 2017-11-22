@@ -36,10 +36,12 @@ class Videogames extends React.Component {
               <GuessArea
                 wordToGuess = {this.props.wordToGuess}
                 usedLetters = {this.props.letters}
+                guessesLeft = {this.props.guessesLeft}
                 setTheme = {this.props.setTheme}
                 setWord = {this.props.setWord}
                 setWordBank = {this.props.setWordBank}
                 setLetter = {this.props.setLetter}
+                setGuessesLeft = {this.props.setGuessesLeft}
               />
             </div>
           </div>

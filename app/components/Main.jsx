@@ -56,6 +56,7 @@ class Main extends React.Component {
     this.setWordBank = this.setWordBank.bind(this);
     this.setWord = this.setWord.bind(this);
     this.setTheme = this.setTheme.bind(this);
+    this.setGuessesLeft = this.setGuessesLeft.bind(this);
   }
   // React Lifecycle functions
   componentDidUpdate() {
@@ -108,6 +109,10 @@ class Main extends React.Component {
     this.setState({ wordToGuess: word })
   }
 
+  setGuessesLeft(guessesLeftReceived) {
+    this.setState({ guessesLeft: guessesLeftReceived })
+  }
+
   render() {
     return(
       <div>
@@ -127,6 +132,7 @@ class Main extends React.Component {
                 setUsedWordsIndex = {this.setUsedWordsIndex}
                 setWord = {this.setWord}
                 setTheme = {this.setTheme}
+                setGuessesLeft = {this.setGuessesLeft}
               />
             )} />
           </Switch>

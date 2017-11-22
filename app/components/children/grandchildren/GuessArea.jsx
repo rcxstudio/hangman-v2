@@ -70,6 +70,10 @@ class GuessArea extends React.Component {
         console.log('found it!', this.state.display);
         partialWord = partialWord.substr(0, i) + currentKey + partialWord.substr(i + 1);
       }
+      else if (currentKey !== this.state.wordCheck[i].toUpperCase()) {
+        // TODO: left here....pick up code
+        this.props.setGuessesLeft(this.props.guessesLeft - 1);
+      }
     }
     this.setState({display: partialWord});
     this.props.setLetter(e.key.toLowerCase());
