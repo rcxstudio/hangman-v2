@@ -35,12 +35,17 @@ class GuessArea extends React.Component {
 
   componentDidUpdate() {
     console.log('Updated, word decided: ', this.props.wordToGuess);
-    if (this.props.wordToGuess !== this.state.display) {
-      let hiddenLetters = [];
-      for (var i = 0; i < array.length; i++) {
-        array[i]
+    if (this.props.wordToGuess !== this.state.display) { //NOTE: Fix conditional 
+      let hiddenLetters = this.state.display;
+      for (let i = 0; i < hiddenLetters.length; i++) {
+        if ((hiddenLetters[i] !== ' ' && hiddenLetters[i + 1] !== ' ') || hiddenLetters[hiddenLetters.length - 1]) {
+          hiddenLetters[i] = '_';
+        }
+        else if (hiddenLetters[i] !== '_' || hiddenLetters[i] !== ' ') {
+          hiddenLetters[i] = '_ ';
+        }
       }
-      this.setState({display : this.props.wordToGuess})
+      this.setState({display: this.props.wordToGuess})
     };
   }
 
