@@ -66,19 +66,18 @@ class GuessArea extends React.Component {
     console.log(this.state.wordCheck.length);
 
     for (let i = 0; i < partialWord.length; i++) {
-      // TODO: need to set conditional to correct issue when correct letter is used.
       if (currentKey === this.state.wordCheck[i].toUpperCase()) {
         this.props.setLetter(e.key.toLowerCase());
         console.log('found it!', this.state.display);
         partialWord = partialWord.substr(0, i) + currentKey + partialWord.substr(i + 1);
       }
+      // TODO: fix issue where correct letter is still subtracting from count; change the conditional here
       else if (currentKey !== this.state.wordCheck[i].toUpperCase() && !this.props.usedLetters[e.key.toLowerCase()]) {
         this.props.setLetter(e.key.toLowerCase());
         this.props.setGuessesLeft(this.props.guessesLeft - 1);
       }
     }
     this.setState({display: partialWord});
-
   }
 
   render() {
