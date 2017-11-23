@@ -45,7 +45,34 @@ class Main extends React.Component {
       },
       wordToGuess: '',
       wordBank: {},
-      wrongLetters:[],
+      wrongLetters:{
+        a: false,
+        b: false,
+        c: false,
+        d: false,
+        e: false,
+        f: false,
+        g: false,
+        h: false,
+        i: false,
+        j: false,
+        k: false,
+        l: false,
+        m: false,
+        n: false,
+        o: false,
+        p: false,
+        q: false,
+        r: false,
+        s: false,
+        t: false,
+        u: false,
+        v: false,
+        w: false,
+        x: false,
+        y: false,
+        z: false
+      },
       correctLetters: [],
       guessesLeft: 6,
       winStreak: 0,
@@ -53,6 +80,7 @@ class Main extends React.Component {
     }
 
     this.setLetter = this.setLetter.bind(this);
+    this.setWrongLetter = this.setWrongLetter.bind(this);
     this.setWordBank = this.setWordBank.bind(this);
     this.setWord = this.setWord.bind(this);
     this.setTheme = this.setTheme.bind(this);
@@ -65,14 +93,20 @@ class Main extends React.Component {
 
   // Custom functions
   setLetter(guessedLetter) {
-    console.log(guessedLetter);
+    const lettersCopy = this.state.letters;
 
-    if (guessedLetter in this.state.letters) {
-      const updatedLetters = this.state.letters;
-      updatedLetters[guessedLetter] = true;
-      // NOTE: you can use variables as keys if you use bracket notation
-      this.setState({ letters: updatedLetters })
-    }
+    lettersCopy[guessedLetter] = true;
+    console.log(guessedLetter);
+    // NOTE: you can use variables as keys if you use bracket notation
+    this.setState({ letters: lettersCopy });
+  }
+
+  setWrongLetter(wrongGuess) {
+    const wrongLettersCopy = this.state.wrongLetters;
+    wrongLetters[wrongGuess] = true;
+    console.log(wrongGuess);
+    // NOTE: you can use variables as keys if you use bracket notation
+    this.setState({ wrongLetters: wrongLettersCopy });
   }
 
   setTheme(selectedTheme) {
@@ -125,9 +159,11 @@ class Main extends React.Component {
                 letters = {this.state.letters}
                 wordToGuess = {this.state.wordToGuess}
                 wordBank = {this.state.wordBank}
+                wrongLetters = {this.state.wrongLetters}
                 winStreak = {this.state.winStreak}
                 guessesLeft = {this.state.guessesLeft}
                 setLetter = {this.setLetter}
+                setWrongLetter = {this.setWrongLetter}
                 setWordBank = {this.setWordBank}
                 setUsedWordsIndex = {this.setUsedWordsIndex}
                 setWord = {this.setWord}

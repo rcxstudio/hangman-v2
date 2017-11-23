@@ -58,6 +58,8 @@ class GuessArea extends React.Component {
     document.removeEventListener('keypress', this.handleKeyPress);
   }
 
+  // NOTE: event 'e' parameter is default, because it's handleKeyPress function
+  // is being used as a callback to an event listener. the event is returned to the callback function
   handleKeyPress(e) {
     let partialWord = this.state.display.toUpperCase();
     let currentKey = e.key.toUpperCase();
@@ -67,8 +69,8 @@ class GuessArea extends React.Component {
 
     for (let i = 0; i < partialWord.length; i++) {
       if (currentKey === this.state.wordCheck[i].toUpperCase()) {
-        this.props.setLetter(e.key.toLowerCase());
         console.log('found it!', this.state.display);
+        this.props.setLetter(e.key.toLowerCase());
         partialWord = partialWord.substr(0, i) + currentKey + partialWord.substr(i + 1);
       }
       // TODO: fix issue where correct letter is still subtracting from count; change the conditional here

@@ -13,17 +13,6 @@ class Videogames extends React.Component {
     super(props);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('keypress', this.handleKeyPress);
-  }
-
-  // NOTE: event parameter is default, because it's handleKeyPress function
-  // is being used as a callback to an event listener.
-  handleKeyPress(e) {
-    console.log('event', e.key);
-
-  }
-
   render() {
     // NOTE: set conditionals/code here!
     // TODO: pick videogame theme background image
@@ -59,6 +48,7 @@ class Videogames extends React.Component {
             <div className="col-md-4 text-center">
               <LetterBank
                 letters = {this.props.letters}
+                wrongLetters = {this.props.wrongLetters}
               />
             </div>
           </div>

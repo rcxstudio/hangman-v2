@@ -7,16 +7,6 @@ import helpers from '../../utils/helpers.js';
 class LetterBank extends React.Component {
   constructor(props){
     super(props);
-
-    // this.state = {
-    //   currentUser: ''
-    // }
-    //
-    // this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    // console.log('GRANDKID on mount!', this.props.wordToGuess)
   }
 
   render() {
@@ -30,8 +20,11 @@ class LetterBank extends React.Component {
           */}
           {/*NOTE: There might be a more efficient way of doing this?*/}
           {Object.keys(this.props.letters).map((key, i) => {
-            if (this.props.letters[key]) {
-              return <span key={key} data-toggle="active">{key.toUpperCase()} </span>;
+            if (this.props.wrongLetters[key]) {
+              return <span key={key} data-toggle="wrong">{key.toUpperCase()} </span>;
+            }
+            else if (this.props.letters[key]) {
+              return <span key={key} data-toggle="correct">{key.toUpperCase()} </span>;
             }
             else {
               return <span key={key} data-toggle="inactive">{key.toUpperCase()} </span>;
