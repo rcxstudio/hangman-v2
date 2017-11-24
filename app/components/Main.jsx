@@ -103,8 +103,13 @@ class Main extends React.Component {
 
   setWrongLetter(wrongGuess) {
     const wrongLettersCopy = this.state.wrongLetters;
-    wrongLettersCopy[wrongGuess] = true;
-    console.log(wrongGuess);
+    if (!wrongLettersCopy[wrongGuess] && !this.state.letters[wrongGuess]) {
+      wrongLettersCopy[wrongGuess] = true;
+    }
+    else if (this.state.letters[wrongGuess]) {
+      wrongLettersCopy[wrongGuess] = false;
+      console.log(wrongGuess);
+    }
     // NOTE: you can use variables as keys if you use bracket notation
     this.setState({ wrongLetters: wrongLettersCopy });
   }

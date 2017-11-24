@@ -24,7 +24,7 @@ span[data-toggle="wrong"] {
 }
 
 span[data-toggle="correct"] {
-	color: green;
+	color: white;
 }
 
 span[data-toggle="inactive"] {
