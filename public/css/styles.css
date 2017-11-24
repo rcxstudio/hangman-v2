@@ -19,8 +19,12 @@ html {
 }
 
 /*TODO: Remove when functioning*/
-span[data-toggle="active"] {
+span[data-toggle="wrong"] {
 	color: red;
+}
+
+span[data-toggle="correct"] {
+	color: white;
 }
 
 span[data-toggle="inactive"] {

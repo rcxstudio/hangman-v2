@@ -13,17 +13,6 @@ class Videogames extends React.Component {
     super(props);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('keypress', this.handleKeyPress);
-  }
-
-  // NOTE: event parameter is default, because it's handleKeyPress function
-  // is being used as a callback to an event listener.
-  handleKeyPress(e) {
-    console.log('event', e.key);
-
-  }
-
   render() {
     // NOTE: set conditionals/code here!
     // TODO: pick videogame theme background image
@@ -35,11 +24,17 @@ class Videogames extends React.Component {
             <div className="col-md-12 text-center">
               <GuessArea
                 wordToGuess = {this.props.wordToGuess}
-                usedLetters = {this.props.letters}
+                letters = {this.props.letters}
+                wrongLetters = {this.props.wrongLetters}
+                lettersClickCount = {this.props.lettersClickCount}
+                guessesLeft = {this.props.guessesLeft}
                 setTheme = {this.props.setTheme}
                 setWord = {this.props.setWord}
                 setWordBank = {this.props.setWordBank}
                 setLetter = {this.props.setLetter}
+                setWrongLetter = {this.props.setWrongLetter}
+                setLettersClickCount = {this.props.setLettersClickCount}
+                setGuessesLeft = {this.props.setGuessesLeft}
               />
             </div>
           </div>
@@ -57,6 +52,7 @@ class Videogames extends React.Component {
             <div className="col-md-4 text-center">
               <LetterBank
                 letters = {this.props.letters}
+                wrongLetters = {this.props.wrongLetters}
               />
             </div>
           </div>

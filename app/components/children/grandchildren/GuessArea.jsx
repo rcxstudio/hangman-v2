@@ -58,23 +58,29 @@ class GuessArea extends React.Component {
     document.removeEventListener('keypress', this.handleKeyPress);
   }
 
+  // NOTE: event 'e' parameter is default, because it's handleKeyPress function
+  // is being used as a callback to an event listener. the event is returned to the callback function
   handleKeyPress(e) {
-    let word = this.state.display.toUpperCase();
+    let partialWord = this.state.display.toUpperCase();
     let currentKey = e.key.toUpperCase();
-    let inputCorrect = this.state.display.toUpperCase();
+    this.props.setLettersClickCount(e.key.toLowerCase());
 
-    console.log(this.state.display.length);
-    console.log(this.state.wordCheck.length);
-
-    for (let i = 0; i < word.length; i++) {
-      if (currentKey === this.state.wordCheck[i].toUpperCase()) {
-        console.log('found it!', this.state.display);
-        // NOTE: why does only the last letter of multiples show up?
-        inputCorrect = inputCorrect.substr(0, i) + currentKey + inputCorrect.substr(i + 1);
+    for (let i = 0; i < partialWord.length; i++) {
+      if (currentKey !== this.state.wordCheck[i].toUpperCase() && !this.props.wrongLetters[e.key.toLowerCase()] && !this.props.letters[e.key.toLowerCase()]) {
+        this.props.setWrongLetter(e.key.toLowerCase());
+      }
+      else if (currentKey === this.state.wordCheck[i].toUpperCase()) {
+        this.props.setLetter(e.key.toLowerCase());
+        this.props.setWrongLetter(e.key.toLowerCase());
+        partialWord = partialWord.substr(0, i) + currentKey + partialWord.substr(i + 1);
       }
     }
-    this.setState({display: inputCorrect});
-    this.props.setLetter(e.key.toLowerCase());
+
+    if (this.props.lettersClickCount[e.key.toLowerCase()] === 1 && this.props.wrongLetters[e.key.toLowerCase()]) {
+      this.props.setGuessesLeft(this.props.guessesLeft - 1);
+    }
+
+    this.setState({display: partialWord});
   }
 
   render() {
