@@ -63,26 +63,23 @@ class GuessArea extends React.Component {
   handleKeyPress(e) {
     let partialWord = this.state.display.toUpperCase();
     let currentKey = e.key.toUpperCase();
-
-    console.log(this.state.display);
+    this.props.setLettersClickCount(e.key.toLowerCase());
 
     for (let i = 0; i < partialWord.length; i++) {
-      // TODO: fix issue where correct letter is still subtracting from count; change the conditional here
-      console.log('keypress', this.state.wordCheck)
       if (currentKey !== this.state.wordCheck[i].toUpperCase() && !this.props.wrongLetters[e.key.toLowerCase()] && !this.props.letters[e.key.toLowerCase()]) {
         this.props.setWrongLetter(e.key.toLowerCase());
-        this.props.setGuessesLeft(this.props.guessesLeft - 1);
-        console.log('wrong');
-        console.table(this.props.wrongLetters);
       }
       else if (currentKey === this.state.wordCheck[i].toUpperCase()) {
         this.props.setLetter(e.key.toLowerCase());
         this.props.setWrongLetter(e.key.toLowerCase());
         partialWord = partialWord.substr(0, i) + currentKey + partialWord.substr(i + 1);
-        console.log('right');
-        console.table(this.props.letters);
       }
     }
+
+    if (this.props.lettersClickCount[e.key.toLowerCase()] === 1 && this.props.wrongLetters[e.key.toLowerCase()]) {
+      this.props.setGuessesLeft(this.props.guessesLeft - 1);
+    }
+
     this.setState({display: partialWord});
   }
 

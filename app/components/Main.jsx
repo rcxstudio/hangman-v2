@@ -73,7 +73,34 @@ class Main extends React.Component {
         y: false,
         z: false
       },
-      correctLetters: [],
+      lettersClickCount: {
+        a: 0,
+        b: 0,
+        c: 0,
+        d: 0,
+        e: 0,
+        f: 0,
+        g: 0,
+        h: 0,
+        i: 0,
+        j: 0,
+        k: 0,
+        l: 0,
+        m: 0,
+        n: 0,
+        o: 0,
+        p: 0,
+        q: 0,
+        r: 0,
+        s: 0,
+        t: 0,
+        u: 0,
+        v: 0,
+        w: 0,
+        x: 0,
+        y: 0,
+        z: 0
+      },
       guessesLeft: 6,
       winStreak: 0,
       secretCode: []
@@ -81,6 +108,7 @@ class Main extends React.Component {
 
     this.setLetter = this.setLetter.bind(this);
     this.setWrongLetter = this.setWrongLetter.bind(this);
+    this.setLettersClickCount = this.setLettersClickCount.bind(this);
     this.setWordBank = this.setWordBank.bind(this);
     this.setWord = this.setWord.bind(this);
     this.setTheme = this.setTheme.bind(this);
@@ -94,9 +122,7 @@ class Main extends React.Component {
   // Custom functions
   setLetter(guessedLetter) {
     const lettersCopy = this.state.letters;
-
     lettersCopy[guessedLetter] = true;
-    console.log(guessedLetter);
     // NOTE: you can use variables as keys if you use bracket notation
     this.setState({ letters: lettersCopy });
   }
@@ -108,7 +134,6 @@ class Main extends React.Component {
     }
     else if (this.state.letters[wrongGuess]) {
       wrongLettersCopy[wrongGuess] = false;
-      console.log(wrongGuess);
     }
     // NOTE: you can use variables as keys if you use bracket notation
     this.setState({ wrongLetters: wrongLettersCopy });
@@ -152,6 +177,12 @@ class Main extends React.Component {
     this.setState({ guessesLeft: guessesLeftReceived })
   }
 
+  setLettersClickCount(letterPressed) {
+    const lettersClickCountCopy = this.state.lettersClickCount;
+    lettersClickCountCopy[letterPressed]++;
+    this.setState({ lettersClickCount: lettersClickCountCopy})
+  }
+
   render() {
     return(
       <div>
@@ -162,6 +193,7 @@ class Main extends React.Component {
               <Videogames
                 themes = {this.state.themes}
                 letters = {this.state.letters}
+                lettersClickCount = {this.state.lettersClickCount}
                 wordToGuess = {this.state.wordToGuess}
                 wordBank = {this.state.wordBank}
                 wrongLetters = {this.state.wrongLetters}
@@ -169,6 +201,7 @@ class Main extends React.Component {
                 guessesLeft = {this.state.guessesLeft}
                 setLetter = {this.setLetter}
                 setWrongLetter = {this.setWrongLetter}
+                setLettersClickCount = {this.setLettersClickCount}
                 setWordBank = {this.setWordBank}
                 setUsedWordsIndex = {this.setUsedWordsIndex}
                 setWord = {this.setWord}
