@@ -31,6 +31,10 @@ span[data-toggle="inactive"] {
 	color: black;
 }
 
+.letterbank, .guess-area {
+	letter-spacing: 0.2rem;
+}
+
 .background-image {
 	position: fixed;
 	z-index: -99;

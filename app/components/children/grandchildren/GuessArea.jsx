@@ -90,7 +90,7 @@ class GuessArea extends React.Component {
           <div className="panel-heading">
             <h3 className="panel-title ">Hidden Word</h3>
           </div>
-          <div className="panel-body">
+          <div className="panel-body guess-area">
             {this.state.display}
           </div>
         </div>
