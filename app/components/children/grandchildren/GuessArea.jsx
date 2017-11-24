@@ -64,8 +64,7 @@ class GuessArea extends React.Component {
     let partialWord = this.state.display.toUpperCase();
     let currentKey = e.key.toUpperCase();
 
-    console.log(this.state.display.length);
-    console.log(this.state.wordCheck.length);
+    console.log(this.state.display);
 
     for (let i = 0; i < partialWord.length; i++) {
       if (currentKey === this.state.wordCheck[i].toUpperCase()) {
@@ -74,8 +73,8 @@ class GuessArea extends React.Component {
         partialWord = partialWord.substr(0, i) + currentKey + partialWord.substr(i + 1);
       }
       // TODO: fix issue where correct letter is still subtracting from count; change the conditional here
-      else if (currentKey !== this.state.wordCheck[i].toUpperCase() && !this.props.usedLetters[e.key.toLowerCase()]) {
-        this.props.setLetter(e.key.toLowerCase());
+      else if (currentKey !== this.state.wordCheck[i].toUpperCase() && !this.props.wrongLetters[e.key.toLowerCase()]) {
+        this.props.setWrongLetter(e.key.toLowerCase());
         this.props.setGuessesLeft(this.props.guessesLeft - 1);
       }
     }

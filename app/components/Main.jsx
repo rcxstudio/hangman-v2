@@ -45,7 +45,7 @@ class Main extends React.Component {
       },
       wordToGuess: '',
       wordBank: {},
-      wrongLetters:{
+      wrongLetters: {
         a: false,
         b: false,
         c: false,
@@ -103,7 +103,7 @@ class Main extends React.Component {
 
   setWrongLetter(wrongGuess) {
     const wrongLettersCopy = this.state.wrongLetters;
-    wrongLetters[wrongGuess] = true;
+    wrongLettersCopy[wrongGuess] = true;
     console.log(wrongGuess);
     // NOTE: you can use variables as keys if you use bracket notation
     this.setState({ wrongLetters: wrongLettersCopy });
