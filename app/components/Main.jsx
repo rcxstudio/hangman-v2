@@ -153,7 +153,7 @@ class Main extends React.Component {
         // NOTE: possibly add a portion that tracks how many times people guessed this word correctly.
       };
       this.setState({ wordBank: objWordBank });
-      return this.setWord();
+      return cbToSetWord();
     })
   }
 
