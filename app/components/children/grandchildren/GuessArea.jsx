@@ -18,20 +18,26 @@ class GuessArea extends React.Component {
 
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyPress);
-    helpers.retrieveVideogame().then(res => {
-      this.props.setTheme(res.data.theme);
-      const receivedWordBank = res.data.themeBank;
-      const objWordBank = {};
-      for (let i = 0; i < receivedWordBank.length; i++) {
-        objWordBank[receivedWordBank[i]] = false;
-      };
-      // NOTE: below portion of code used to reduce the wordBank so no duplicates occur for user.
-      const keys = Object.keys(objWordBank);
-      const starterWord = keys[Math.floor(Math.random() * keys.length)];
-      this.props.setWord(starterWord);
-      delete objWordBank[starterWord];
-      this.props.setWordBank(objWordBank);
-    });
+    this.props.setWordBank();
+    // this.props.setWord();
+    // this.props.setWordBank().then(nextUp, () => {
+    //   this.props.setWord();
+    // })
+
+    // helpers.retrieveVideogame().then(res => {
+    //   this.props.setTheme(res.data.theme);
+    //   const receivedWordBank = res.data.themeBank;
+    //   const objWordBank = {};
+    //   for (let i = 0; i < receivedWordBank.length; i++) {
+    //     objWordBank[receivedWordBank[i]] = false;
+    //   };
+    //   // NOTE: below portion of code used to reduce the wordBank so no duplicates occur for user.
+    //   const keys = Object.keys(objWordBank);
+    //   const starterWord = keys[Math.floor(Math.random() * keys.length)];
+    //   this.props.setWord(starterWord);
+    //   delete objWordBank[starterWord];
+    //   this.props.setWordBank(objWordBank);
+    // });
   }
 
   componentDidUpdate() {
@@ -82,8 +88,8 @@ class GuessArea extends React.Component {
 
     this.setState({display: partialWord});
     if (this.state.display.toUpperCase() === this.state.wordCheck.toUpperCase()) {
-      console.log('streak triggered');
       this.props.addWinStreak();
+      this.props.setWord();
     }
   }
 

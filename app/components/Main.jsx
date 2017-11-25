@@ -43,7 +43,7 @@ class Main extends React.Component {
         y: false,
         z: false
       },
-      wordToGuess: '',
+      wordToGuess: 'hello',
       wordBank: {},
       wrongLetters: {
         a: false,
@@ -165,12 +165,41 @@ class Main extends React.Component {
     }
   }
 
-  setWordBank(wordBankReceived) {
-    this.setState({ wordBank: wordBankReceived })
+  setWordBank(nextWord, callbackSetWord) {
+    // NOTE: use only on initial call to database for selected themes.
+    // this.setState({ wordBank: wordBankReceived })
+    helpers.retrieveVideogame().then(res => {
+      console.log('initial setWordBank', this.state.wordBank);
+      this.setState({ theme: res.data.theme });
+      // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
+      const receivedWordBank = res.data.themeBank;
+      const objWordBank = {};
+      for (let i = 0; i < receivedWordBank.length; i++) {
+        objWordBank[receivedWordBank[i]] = 0;
+        // NOTE: possibly add a portion that tracks how many times people guessed this word correctly.
+      };
+      this.setState({ wordBank: objWordBank });
+
+      // this.setState((prevState, props) => {
+      //   return { wordBank: objWordBank }
+      // }, () => {
+      //   this.setWord();
+      // }));
+      // this.setWord();
+      console.log('setWordBank after setState', this.state.wordBank);
+
+    })
   }
 
-  setWord(word) {
-    this.setState({ wordToGuess: word })
+  setWord() {
+    console.log('setWord');
+    const updatedWordBank = this.state.wordBank;
+    // NOTE: below portion of code used to reduce the wordBank so no duplicates occur for user.
+    const keys = Object.keys(updatedWordBank);
+    const starterWord = keys[Math.floor(Math.random() * keys.length)];
+    this.setState({ wordToGuess: starterWord })
+    delete updatedWordBank[starterWord];
+    this.setState({ wordBank: updatedWordBank });
   }
 
   setGuessesLeft(guessesLeftReceived) {
@@ -186,7 +215,9 @@ class Main extends React.Component {
   addWinStreak() {
     let updatedWins = this.state.winStreak;
     updatedWins++;
-    this.setState({winStreak: updatedWins})
+    this.setState({winStreak: updatedWins});
+    //TODO: add reset for LetterBank
+    //TODO: add reset for guessesLeft
   }
 
   render() {
