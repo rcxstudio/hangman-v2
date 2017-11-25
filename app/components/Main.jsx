@@ -43,7 +43,7 @@ class Main extends React.Component {
         y: false,
         z: false
       },
-      wordToGuess: 'hello',
+      wordToGuess: '',
       wordBank: {},
       wrongLetters: {
         a: false,
@@ -165,7 +165,7 @@ class Main extends React.Component {
     }
   }
 
-  setWordBank(nextWord, callbackSetWord) {
+  setWordBank(cbToSetWord) {
     // NOTE: use only on initial call to database for selected themes.
     // this.setState({ wordBank: wordBankReceived })
     helpers.retrieveVideogame().then(res => {
@@ -187,7 +187,7 @@ class Main extends React.Component {
       // }));
       // this.setWord();
       console.log('setWordBank after setState', this.state.wordBank);
-
+      return this.setWord();
     })
   }
 
