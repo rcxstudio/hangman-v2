@@ -47,7 +47,7 @@ class GuessArea extends React.Component {
           if (hiddenLetters[i] !== ' ') {
             tempHidden += '_';
           }
-          else tempHidden += '\xa0';
+          else tempHidden += ' ';
         }
         this.setState({ display: tempHidden });
       });
@@ -81,6 +81,10 @@ class GuessArea extends React.Component {
     }
 
     this.setState({display: partialWord});
+    if (this.state.display.toUpperCase() === this.state.wordCheck.toUpperCase()) {
+      console.log('streak triggered');
+      this.props.addWinStreak();
+    }
   }
 
   render() {

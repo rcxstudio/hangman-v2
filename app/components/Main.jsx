@@ -102,8 +102,7 @@ class Main extends React.Component {
         z: 0
       },
       guessesLeft: 6,
-      winStreak: 0,
-      secretCode: []
+      winStreak: 0
     }
 
     this.setLetter = this.setLetter.bind(this);
@@ -113,6 +112,7 @@ class Main extends React.Component {
     this.setWord = this.setWord.bind(this);
     this.setTheme = this.setTheme.bind(this);
     this.setGuessesLeft = this.setGuessesLeft.bind(this);
+    this.addWinStreak = this.addWinStreak.bind(this);
   }
   // React Lifecycle functions
   componentDidUpdate() {
@@ -183,6 +183,12 @@ class Main extends React.Component {
     this.setState({ lettersClickCount: lettersClickCountCopy})
   }
 
+  addWinStreak() {
+    let updatedWins = this.state.winStreak;
+    updatedWins++;
+    this.setState({winStreak: updatedWins})
+  }
+
   render() {
     return(
       <div>
@@ -207,6 +213,7 @@ class Main extends React.Component {
                 setWord = {this.setWord}
                 setTheme = {this.setTheme}
                 setGuessesLeft = {this.setGuessesLeft}
+                addWinStreak = {this.addWinStreak}
               />
             )} />
           </Switch>
