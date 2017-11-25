@@ -23,12 +23,11 @@ class Videogames extends React.Component {
           <div className="row">
             <div className="col-md-12 text-center">
               <GuessArea
-                wordToGuess = {this.props.wordToGuess}
                 letters = {this.props.letters}
-                wrongLetters = {this.props.wrongLetters}
                 lettersClickCount = {this.props.lettersClickCount}
+                wordToGuess = {this.props.wordToGuess}
+                wrongLetters = {this.props.wrongLetters}
                 guessesLeft = {this.props.guessesLeft}
-                setTheme = {this.props.setTheme}
                 setWord = {this.props.setWord}
                 setWordBank = {this.props.setWordBank}
                 setLetter = {this.props.setLetter}
