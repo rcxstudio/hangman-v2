@@ -35,6 +35,8 @@ class Videogames extends React.Component {
                 setLettersClickCount = {this.props.setLettersClickCount}
                 setGuessesLeft = {this.props.setGuessesLeft}
                 addWinStreak = {this.props.addWinStreak}
+                gameOver = {this.props.gameOver}
+                startGame = {this.props.startGame}
               />
             </div>
           </div>

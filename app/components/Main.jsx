@@ -153,7 +153,7 @@ class Main extends React.Component {
         // NOTE: possibly add a portion that tracks how many times people guessed this word correctly.
       };
       this.setState({ wordBank: objWordBank });
-      return cbToSetWord();
+      cbToSetWord();
     })
   }
 
@@ -371,9 +371,12 @@ class Main extends React.Component {
     })
   }
 
-  gameOver() {
+  gameOver(cbToStartGame) {
     // TODO: Add game over logic
     // display game over page, and relink to the theme page
+    console.log('GAME OVER');
+    cbToStartGame();
+    this.setWordBank(this.setWord);
   }
 
   render() {
@@ -398,6 +401,7 @@ class Main extends React.Component {
                 setGuessesLeft = {this.setGuessesLeft}
                 addWinStreak = {this.addWinStreak}
                 gameOver = {this.gameOver}
+                startGame = {this.startGame}
               />
             )} />
           </Switch>

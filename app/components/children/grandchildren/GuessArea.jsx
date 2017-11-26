@@ -66,6 +66,10 @@ class GuessArea extends React.Component {
 
     if (this.props.lettersClickCount[e.key.toLowerCase()] === 1 && this.props.wrongLetters[e.key.toLowerCase()]) {
       this.props.setGuessesLeft(this.props.guessesLeft - 1);
+      if (this.props.guessesLeft === 0) {
+        this.props.gameOver(this.props.startGame);
+
+      }
     }
 
     this.setState({display: partialWord});
