@@ -23,15 +23,19 @@ app.use(methodOverride('_method'));
 //NOTE: with webpack, bundle.js needs to be in the public folder...check docs
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-//TODO: add the heroku link below
 //database logic
-// if (process.env.MONGODB_URI || process.env.NODE_ENV === 'production') mongoose.connect(process.env.MONGODB_URI);
-// else mongoose.connect("mongodb://localhost/hangman");
-const promise = mongoose.connect('mongodb://localhost/hangman', {
-  useMongoClient: true,
-  /* other options */
-});
+if (process.env.MONGODB_URI || process.env.NODE_ENV === 'production') {
+  const promise = mongoose.connect(process.env.MONGODB_URI, {
+    useMongoClient: true,
+    /* other options */
+  });
+}
+else {
+  const promise = mongoose.connect('mongodb://localhost/hangman', {
+    useMongoClient: true,
+    /* other options */
+  });
+}
 
 const Theme = require('./models/Theme.js');
 const db = mongoose.connection;

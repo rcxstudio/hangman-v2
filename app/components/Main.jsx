@@ -117,9 +117,8 @@ class Main extends React.Component {
   }
   // React Lifecycle functions
   componentDidMount() {
-    console.log(this.state.wordToGuess);
+    console.log('MAIN MOUNTED');
   }
-
 
   // Custom functions
   setLetter(guessedLetter) {

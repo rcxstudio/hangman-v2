@@ -1,7 +1,7 @@
 {
   "name": "Hangman",
   "version": "1.0.0",
-  "description": "Customized game of hangman.",
+  "description": "Hangman game using MERN stack.",
   "main": "server.js",
   "repository": "git@github.com:Ropestar1/hangman-v2.git",
   "author": "Roper Macaraeg",
@@ -9,8 +9,8 @@
   "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "yarn install && node server.js",
-    "bundle": "webpack -p"
+    "start": "node server.js",
+    "bundle": "webpack -w"
   },
   "dependencies": {
     "axios": "^0.17.0",
