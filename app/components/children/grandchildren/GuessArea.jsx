@@ -24,8 +24,6 @@ class GuessArea extends React.Component {
 
   componentDidUpdate() {
     console.log('Updated, word decided: ', this.props.wordToGuess);
-    console.log('Updated, display: ', this.state.display);
-    console.log('Updated, wordCheck: ', this.state.wordCheck);
 
     if (this.props.wordToGuess !== this.state.wordCheck) {
       let hiddenLetters = this.props.wordToGuess;
