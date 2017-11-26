@@ -118,6 +118,7 @@ class Main extends React.Component {
   // React Lifecycle functions
   componentDidMount() {
     console.log('MAIN MOUNTED');
+    // NOTE: Think about how I can reduce the duplication of reset values in the 
   }
 
   // Custom functions
