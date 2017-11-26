@@ -23,36 +23,36 @@ db.themes.insertMany([
 //   {
 //     theme: 'videogames',
 //     themeBank: {
-//       'Sonic the Hedgehog': false,
-//       'Street Fighter': false,
-//       'Mortal Kombat': false,
-//       'Professor Layton': false,
-//       'Devil May Cry': false,
-//       'God of War': false,
-//       'Call of Duty': false,
-//       'Doom': false,
-//       'Sudoku': false,
-//       'Mega Man': false,
-//       'Super Mario Bros': false,
-//       'Mario Kart': false
+//       'Sonic the Hedgehog': 0,
+//       'Street Fighter': 0,
+//       'Mortal Kombat': 0,
+//       'Professor Layton': 0,
+//       'Devil May Cry': 0,
+//       'God of War': 0,
+//       'Call of Duty': 0,
+//       'Doom': 0,
+//       'Sudoku': 0,
+//       'Mega Man': 0,
+//       'Super Mario Bros': 0,
+//       'Mario Kart': 0
 //     }
 //   },
 //   {
 //     theme: 'fantasy',
 //     themeBank: {
-//       'dragons': false,
-//       'castles': false,
-//       'princes': false,
-//       'princesses': false,
-//       'warlocks': false,
-//       'wizards': false,
-//       'witches': false,
-//       'trolls': false,
-//       'elves': false,
-//       'gnomes': false,
-//       'swords': false,
-//       'knights': false,
-//       'magic': false
+//       'dragons': 0,
+//       'castles': 0,
+//       'princes': 0,
+//       'princesses': 0,
+//       'warlocks': 0,
+//       'wizards': 0,
+//       'witches': 0,
+//       'trolls': 0,
+//       'elves': 0,
+//       'gnomes': 0,
+//       'swords': 0,
+//       'knights': 0,
+//       'magic': 0
 //     }
 //   }
 // ])

@@ -7,20 +7,6 @@ import helpers from '../../utils/helpers.js';
 class HeaderGames extends React.Component {
   constructor(props){
     super(props);
-
-    // this.state = {
-    //   currentUser: ''
-    // }
-    //
-    // this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-
-  }
-
-  handleClick() {
-
   }
 
   render() {

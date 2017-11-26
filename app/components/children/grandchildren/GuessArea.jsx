@@ -18,26 +18,12 @@ class GuessArea extends React.Component {
 
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyPress);
-    helpers.retrieveVideogame().then(res => {
-      this.props.setTheme(res.data.theme);
-      const receivedWordBank = res.data.themeBank;
-      const objWordBank = {};
-      for (let i = 0; i < receivedWordBank.length; i++) {
-        objWordBank[receivedWordBank[i]] = false;
-      };
-      // NOTE: below portion of code used to reduce the wordBank so no duplicates occur for user.
-      const keys = Object.keys(objWordBank);
-      const starterWord = keys[Math.floor(Math.random() * keys.length)];
-      this.props.setWord(starterWord);
-      delete objWordBank[starterWord];
-      this.props.setWordBank(objWordBank);
-    });
+    // this.props.setTheme();
+    this.props.setWordBank(this.props.setWord);
   }
 
   componentDidUpdate() {
     console.log('Updated, word decided: ', this.props.wordToGuess);
-    console.log('Updated, display: ', this.state.display);
-    console.log('Updated, wordCheck: ', this.state.wordCheck);
 
     if (this.props.wordToGuess !== this.state.wordCheck) {
       let hiddenLetters = this.props.wordToGuess;
@@ -47,7 +33,7 @@ class GuessArea extends React.Component {
           if (hiddenLetters[i] !== ' ') {
             tempHidden += '_';
           }
-          else tempHidden += '\xa0';
+          else tempHidden += ' ';
         }
         this.setState({ display: tempHidden });
       });
@@ -78,9 +64,17 @@ class GuessArea extends React.Component {
 
     if (this.props.lettersClickCount[e.key.toLowerCase()] === 1 && this.props.wrongLetters[e.key.toLowerCase()]) {
       this.props.setGuessesLeft(this.props.guessesLeft - 1);
+      if (this.props.guessesLeft === 0) {
+        this.props.gameOver(this.props.startGame);
+
+      }
     }
 
     this.setState({display: partialWord});
+    if (this.state.display.toUpperCase() === this.state.wordCheck.toUpperCase()) {
+      this.props.addWinStreak();
+      this.props.setWord();
+    }
   }
 
   render() {
@@ -90,7 +84,7 @@ class GuessArea extends React.Component {
           <div className="panel-heading">
             <h3 className="panel-title ">Hidden Word</h3>
           </div>
-          <div className="panel-body">
+          <div className="panel-body guess-area">
             {this.state.display}
           </div>
         </div>

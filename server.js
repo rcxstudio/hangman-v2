@@ -48,8 +48,7 @@ db.once("open", () => {
 // "html-routes" are handled by react-router
 
 app.get('/api/:theme', (req, res) => {
-  console.log('TRIGGER');
-  // NOTE: to 'hard check' the databbase, use mongoose.model('<name of collection>').findOne()...
+  // NOTE: to 'hard check' the database, use mongoose.model('<name of collection>').findOne()...
   Theme.findOne({ theme: req.params.theme}, (err, foundTheme) => {
     /* NOTE: foundTheme is an object containing a lot of information. If you want to access just the contents you are "expecting", then you need to call on foundTheme.data to access the specific content that is being sent back in res.send()*/
     if (err) throw err;
