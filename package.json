@@ -12,7 +12,8 @@
   "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && webpack -p && node server.js"
+    "start": "npm install && webpack -p && node server.js",
+    "seeds": "node ./models/seeders/themeSeeds.js"
   },
   "dependencies": {
     "axios": "^0.17.0",
@@ -31,9 +32,10 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "html-loader": "^0.5.1",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
-    "morgan": "^1.9.0"
+
   }
 }
