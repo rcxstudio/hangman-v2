@@ -1,2 +1,2 @@
-# hangman-v2
+# MERNman
 New and improved hangman.
