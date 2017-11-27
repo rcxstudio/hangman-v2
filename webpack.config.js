@@ -24,7 +24,6 @@ module.exports = {
         }
       ]
   },
-  // TODO: Research devServer when you get a chance
   devServer: {
     historyApiFallback: true
   },
