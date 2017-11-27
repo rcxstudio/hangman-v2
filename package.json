@@ -5,7 +5,7 @@
     "node": "8.8.1"
   },
   "description": "Hangman game using MERN stack.",
-  "main": "webpack.config.js",
+  "main": "server.js",
   "repository": "git@github.com:Ropestar1/hangman-v2.git",
   "author": "Roper Macaraeg",
   "license": "MIT",
