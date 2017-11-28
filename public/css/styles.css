@@ -54,7 +54,25 @@ span[data-toggle="inactive"] {
 }
 
 #theme-list {
-  margin-top: 24%;
+  margin-top: 15%;
+}
+
+#videogames-theme {
+	background-color: black;
+	color: green;
+	margin-bottom: 1.15rem;
+}
+
+#fantasy-theme {
+	background-color: gray;
+	color: blue;
+	margin-bottom: 1.15rem;
+}
+
+#scifi-theme {
+	background-color: black;
+	color: white;
+	margin-bottom: 1.15rem;
 }
 
 /* Media Queries Section */

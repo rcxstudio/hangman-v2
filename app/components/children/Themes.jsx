@@ -17,9 +17,9 @@ class Themes extends React.Component {
           <div className="row">
             <div className="col-md-12 text-center">
               <ul className="list-group" id="theme-list">
-                <Link to="/videogames"><li className="list-group-item">Video Games</li></Link>
-                <Link to="/fantasy"><li className="list-group-item">Fantasy</li></Link>
-                <Link to="/scifi"><li className="list-group-item">Sci-Fi</li></Link>
+                <Link to="/videogames"><li className="list-group-item" id="videogames-theme">Video Games</li></Link>
+                <Link to="/fantasy"><li className="list-group-item" id="fantasy-theme">Fantasy</li></Link>
+                <Link to="/scifi"><li className="list-group-item"id="scifi-theme">Sci-Fi</li></Link>
               </ul>
             </div>
           </div>
