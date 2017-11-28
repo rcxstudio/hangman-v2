@@ -12,13 +12,18 @@ class Themes extends React.Component {
   render () {
     return(
       <div>
-        <img className="background-image" src="./images/landscape-web.jpg" alt="landscape image" />
         <Header />
-        <ul>
-          <li><Link to="/videogames">Video Games</Link></li>
-          <li><Link to="/fantasy">Fantasy</Link></li>
-          <li><Link to="/scifi">Sci-Fi</Link></li>
-        </ul>
+        <section className="container">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <ul className="list-group">
+                <Link to="/videogames"><li className="list-group-item">Video Games</li></Link>
+                <li className="list-group-item"><Link to="/fantasy">Fantasy</Link></li>
+                <li className="list-group-item"><Link to="/scifi">Sci-Fi</Link></li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
     )};
 }

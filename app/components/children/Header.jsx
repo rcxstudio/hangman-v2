@@ -12,10 +12,10 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header className="container">
+      <header className="container-fluid">
         <div className="row">
           <div className="col-md-12 text-center">
-            <h1>Hangman - version 2</h1>
+            <h1>MERNman - Select your themed challenge</h1>
           </div>
         </div>
       </header>

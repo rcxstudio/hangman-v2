@@ -3,10 +3,19 @@ import axios from 'axios';
 const helpers = {
   retrieveVideogame: () => {
     return axios.get('/api/videogames').then(res => {
-      // TODO: change index value to a random number based on the length.
       return res;
     })
   },
+  retrieveFantasy: () => {
+    return axios.get('/api/fantasy').then(res => {
+      return res;
+    })
+  },
+  retrieveSciFi: () => {
+    return axios.get('/api/scifi').then(res => {
+      return res;
+    })
+  }
 }
 
 export default helpers;

@@ -18,7 +18,6 @@ class GuessArea extends React.Component {
 
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyPress);
-    this.props.setWordBank(this.props.setWord);
   }
 
   componentDidUpdate() {

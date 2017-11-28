@@ -141,7 +141,7 @@ class Main extends React.Component {
     this.setState({ wrongLetters: wrongLettersCopy });
   }
 
-  setWordBank(cbToSetWord) {
+  setWordBank(theme, cbToSetWord) {
     // NOTE: use only on initial call to database for selected themes.
     helpers.retrieveVideogame().then(res => {
       this.setState({ theme: res.data.theme });

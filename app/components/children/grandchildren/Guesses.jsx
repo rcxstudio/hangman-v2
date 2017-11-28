@@ -11,6 +11,7 @@ class Guesses extends React.Component {
   }
 
   render() {
+    // NOTE: use conditionals for the theme to determine the id's/ css styling attributes.
     return (
       <div className="panel panel-default">
         <div className="panel-heading">

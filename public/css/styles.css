@@ -18,6 +18,10 @@ html {
 	/*font-family: 'Questrial', sans-serif;*/
 }
 
+ul {
+	list-style: none;
+}
+
 /*TODO: Remove when functioning*/
 span[data-toggle="wrong"] {
 	color: red;

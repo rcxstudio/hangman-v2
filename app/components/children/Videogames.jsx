@@ -13,9 +13,13 @@ class Videogames extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    // NOTE: change the theme in the parameter for future themes
+    this.props.setWordBank('videogames', this.props.setWord);
+  }
+
   render() {
-    // NOTE: set conditionals/code here!
-    // TODO: pick videogame theme background image
+    // NOTE: use conditionals for the theme to determine the id's/ css styling attributes.
     return (
       <div>
         <HeaderGames />
