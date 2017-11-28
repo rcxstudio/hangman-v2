@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from './Header.jsx';
+import Copyright from './Copyright.jsx';
 
 
 class Themes extends React.Component {
@@ -24,6 +25,7 @@ class Themes extends React.Component {
             </div>
           </div>
         </section>
+        <Copyright />
       </div>
     )};
 }

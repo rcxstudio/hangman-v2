@@ -23,7 +23,7 @@ class GuessArea extends React.Component {
   componentDidUpdate() {
 
     // TODO: Bug where display doesn't reset on Game over.
-    
+
     if (this.props.wordToGuess !== this.state.wordCheck) {
       let hiddenLetters = this.props.wordToGuess;
       this.setState({ wordCheck: this.props.wordToGuess }, () => {
@@ -64,7 +64,7 @@ class GuessArea extends React.Component {
     if (this.props.lettersClickCount[e.key.toLowerCase()] === 1 && this.props.wrongLetters[e.key.toLowerCase()]) {
       this.props.setGuessesLeft(this.props.guessesLeft - 1);
       if (this.props.guessesLeft === 0) {
-        this.props.gameOver(this.props.startGame);
+        this.props.gameOver();
 
       }
     }

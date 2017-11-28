@@ -145,7 +145,6 @@ class Main extends React.Component {
     if (theme === 'videogames') {
       helpers.retrieveVideogame().then(res => {
         this.setState({ themes: {[res.data.theme] : true} });
-        console.log(this.state.themes)
         // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
         const receivedWordBank = res.data.themeBank;
         const objWordBank = {};
@@ -160,7 +159,6 @@ class Main extends React.Component {
     else if (theme === 'scifi') {
       helpers.retrieveSciFi().then(res => {
         this.setState({ themes: {[res.data.theme] : true} });
-        console.log(this.state.themes)
         // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
         const receivedWordBank = res.data.themeBank;
         const objWordBank = {};
@@ -175,7 +173,6 @@ class Main extends React.Component {
     else if (theme === 'fantasy') {
       helpers.retrieveFantasy().then(res => {
         this.setState({ themes: {[res.data.theme] : true} });
-        console.log(this.state.themes)
         // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
         const receivedWordBank = res.data.themeBank;
         const objWordBank = {};
@@ -187,7 +184,6 @@ class Main extends React.Component {
         cbToSetWord();
       })
     }
-
   }
 
   setWord() {

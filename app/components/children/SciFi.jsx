@@ -7,6 +7,7 @@ import Streak from './grandchildren/Streak.jsx';
 import Guesses from './grandchildren/Guesses.jsx';
 import LetterBank from './grandchildren/LetterBank.jsx';
 import helpers from '../utils/helpers';
+import Copyright from './Copyright.jsx';
 
 class SciFi extends React.Component {
   constructor(props){
@@ -63,6 +64,7 @@ class SciFi extends React.Component {
             </div>
           </div>
         </section>
+        <Copyright />
       </div>
     )
   }
