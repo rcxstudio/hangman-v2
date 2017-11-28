@@ -12,11 +12,7 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      themes: {
-        videogames: false,
-        sciFi: false,
-        fantasy: false
-      },
+      themes: {},
       letters: {
         a: false,
         b: false,
@@ -145,10 +141,11 @@ class Main extends React.Component {
 
   setWordBank(theme, cbToSetWord) {
     // NOTE: use only on initial call to database for selected themes.
+    this.startGame();
     if (theme === 'videogames') {
-      this.startGame();
       helpers.retrieveVideogame().then(res => {
-        this.setState({ theme: res.data.theme });
+        this.setState({ themes: {[res.data.theme] : true} });
+        console.log(this.state.themes)
         // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
         const receivedWordBank = res.data.themeBank;
         const objWordBank = {};
@@ -161,9 +158,9 @@ class Main extends React.Component {
       })
     }
     else if (theme === 'scifi') {
-      this.startGame();
       helpers.retrieveSciFi().then(res => {
-        this.setState({ theme: res.data.theme });
+        this.setState({ themes: {[res.data.theme] : true} });
+        console.log(this.state.themes)
         // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
         const receivedWordBank = res.data.themeBank;
         const objWordBank = {};
@@ -176,9 +173,9 @@ class Main extends React.Component {
       })
     }
     else if (theme === 'fantasy') {
-      this.startGame();
       helpers.retrieveFantasy().then(res => {
-        this.setState({ theme: res.data.theme });
+        this.setState({ themes: {[res.data.theme] : true} });
+        console.log(this.state.themes)
         // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
         const receivedWordBank = res.data.themeBank;
         const objWordBank = {};
@@ -311,11 +308,7 @@ class Main extends React.Component {
 
   startGame() {
     this.setState({
-      themes: {
-        videogames: false,
-        sciFi: false,
-        fantasy: false
-      },
+      themes: {},
       letters: {
         a: false,
         b: false,
@@ -407,19 +400,16 @@ class Main extends React.Component {
     })
   }
 
-  gameOver(cbToStartGame) {
-    // TODO: Add game over logic
-    // display game over page, and relink to the theme page
+  gameOver() {
+    // TODO: display game over page, and relink to the theme page
     console.log('GAME OVER');
-    cbToStartGame();
-    // TODO: set this to
-    if (this.state.theme['videogame']) {
+    if (this.state.themes['videogames']) {
       this.setWordBank('videogames', this.setWord);
     }
-    else if (this.state.theme['scifi']) {
+    else if (this.state.themes['scifi']) {
       this.setWordBank('scifi', this.setWord);
     }
-    else if (this.state.theme['fantasy']) {
+    else if (this.state.themes['fantasy']) {
       this.setWordBank('fantasy', this.setWord);
     }
   }
