@@ -10,14 +10,6 @@ class Header extends React.Component {
 
   }
 
-  componentDidMount() {
-    console.log('Default header loaded.')
-  }
-
-  handleClick() {
-
-  }
-
   render() {
     return (
       <header className="container">
