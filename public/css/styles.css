@@ -24,6 +24,16 @@ header {
 	margin-bottom: 2rem;
 }
 
+footer {
+	color: gray;
+	font-size: 0.75rem;
+  position: fixed;
+  bottom: 0;
+  padding-top: 10px;
+  width: 100%;
+  height: 2.25rem;
+}
+
 ul {
 	list-style: none;
 }
