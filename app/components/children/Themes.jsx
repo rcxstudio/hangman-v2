@@ -16,10 +16,10 @@ class Themes extends React.Component {
         <section className="container">
           <div className="row">
             <div className="col-md-12 text-center">
-              <ul className="list-group">
+              <ul className="list-group" id="theme-list">
                 <Link to="/videogames"><li className="list-group-item">Video Games</li></Link>
-                <li className="list-group-item"><Link to="/fantasy">Fantasy</Link></li>
-                <li className="list-group-item"><Link to="/scifi">Sci-Fi</Link></li>
+                <Link to="/fantasy"><li className="list-group-item">Fantasy</li></Link>
+                <Link to="/scifi"><li className="list-group-item">Sci-Fi</li></Link>
               </ul>
             </div>
           </div>

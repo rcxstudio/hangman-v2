@@ -22,6 +22,15 @@ ul {
 	list-style: none;
 }
 
+a {
+	color: black;
+	font-size: 1.5rem;
+}
+
+a:-webkit-any-link {
+	text-decoration: none;
+}
+
 /*TODO: Remove when functioning*/
 span[data-toggle="wrong"] {
 	color: red;
@@ -42,7 +51,10 @@ span[data-toggle="inactive"] {
 .background-image {
 	position: fixed;
 	z-index: -99;
+}
 
+#theme-list {
+  margin-top: 24%;
 }
 
 /* Media Queries Section */

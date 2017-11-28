@@ -15,7 +15,7 @@ class Header extends React.Component {
       <header className="container-fluid">
         <div className="row">
           <div className="col-md-12 text-center">
-            <h1>MERNman - Select your themed challenge</h1>
+            <h1>MERNman</h1>
           </div>
         </div>
       </header>
