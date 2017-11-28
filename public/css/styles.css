@@ -65,8 +65,13 @@ span[data-toggle="inactive"] {
 }
 
 .background-image {
+	background-image: url("../images/random_grey_variations.png");
 	position: fixed;
 	z-index: -99;
+	background-repeat: repeat;
+	background-size: 400px;
+	width: 100%;
+	height: 100%;
 }
 
 #theme-list {

@@ -413,6 +413,7 @@ class Main extends React.Component {
   render() {
     return(
       <div>
+        <img className="background-image"></img>
         <main>
           <Switch>
             <Route exact path="/" component={Themes} />
