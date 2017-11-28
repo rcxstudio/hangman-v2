@@ -18,6 +18,12 @@ html {
 	/*font-family: 'Questrial', sans-serif;*/
 }
 
+header {
+	color: white;
+	background-color: black;
+	margin-bottom: 2rem;
+}
+
 ul {
 	list-style: none;
 }

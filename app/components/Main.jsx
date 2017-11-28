@@ -4,6 +4,8 @@ import { Route, Switch, Redirect} from 'react-router-dom';
 import helpers from './utils/helpers';
 import Themes from './children/Themes.jsx';
 import Videogames from './children/Videogames.jsx';
+import SciFi from './children/SciFi.jsx';
+import Fantasy from './children/Fantasy.jsx';
 
 class Main extends React.Component {
   constructor(props) {
@@ -143,18 +145,52 @@ class Main extends React.Component {
 
   setWordBank(theme, cbToSetWord) {
     // NOTE: use only on initial call to database for selected themes.
-    helpers.retrieveVideogame().then(res => {
-      this.setState({ theme: res.data.theme });
-      // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
-      const receivedWordBank = res.data.themeBank;
-      const objWordBank = {};
-      for (let i = 0; i < receivedWordBank.length; i++) {
-        objWordBank[receivedWordBank[i]] = 0;
-        // NOTE: possibly add a portion that tracks how many times people guessed this word correctly.
-      };
-      this.setState({ wordBank: objWordBank });
-      cbToSetWord();
-    })
+    if (theme === 'videogames') {
+      this.startGame();
+      helpers.retrieveVideogame().then(res => {
+        this.setState({ theme: res.data.theme });
+        // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
+        const receivedWordBank = res.data.themeBank;
+        const objWordBank = {};
+        for (let i = 0; i < receivedWordBank.length; i++) {
+          objWordBank[receivedWordBank[i]] = 0;
+          // NOTE: possibly add a portion that tracks how many times people guessed this word correctly.
+        };
+        this.setState({ wordBank: objWordBank });
+        cbToSetWord();
+      })
+    }
+    else if (theme === 'scifi') {
+      this.startGame();
+      helpers.retrieveSciFi().then(res => {
+        this.setState({ theme: res.data.theme });
+        // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
+        const receivedWordBank = res.data.themeBank;
+        const objWordBank = {};
+        for (let i = 0; i < receivedWordBank.length; i++) {
+          objWordBank[receivedWordBank[i]] = 0;
+          // NOTE: possibly add a portion that tracks how many times people guessed this word correctly.
+        };
+        this.setState({ wordBank: objWordBank });
+        cbToSetWord();
+      })
+    }
+    else if (theme === 'fantasy') {
+      this.startGame();
+      helpers.retrieveFantasy().then(res => {
+        this.setState({ theme: res.data.theme });
+        // NOTE: Look into possibly making data for themeBank an object from the get go vs. an array (more efficient data)
+        const receivedWordBank = res.data.themeBank;
+        const objWordBank = {};
+        for (let i = 0; i < receivedWordBank.length; i++) {
+          objWordBank[receivedWordBank[i]] = 0;
+          // NOTE: possibly add a portion that tracks how many times people guessed this word correctly.
+        };
+        this.setState({ wordBank: objWordBank });
+        cbToSetWord();
+      })
+    }
+
   }
 
   setWord() {
@@ -376,7 +412,16 @@ class Main extends React.Component {
     // display game over page, and relink to the theme page
     console.log('GAME OVER');
     cbToStartGame();
-    this.setWordBank(this.setWord);
+    // TODO: set this to
+    if (this.state.theme['videogame']) {
+      this.setWordBank('videogames', this.setWord);
+    }
+    else if (this.state.theme['scifi']) {
+      this.setWordBank('scifi', this.setWord);
+    }
+    else if (this.state.theme['fantasy']) {
+      this.setWordBank('fantasy', this.setWord);
+    }
   }
 
   render() {
@@ -387,6 +432,44 @@ class Main extends React.Component {
             <Route exact path="/" component={Themes} />
             <Route path="/videogames" render={() => (
               <Videogames
+                letters = {this.state.letters}
+                lettersClickCount = {this.state.lettersClickCount}
+                wordToGuess = {this.state.wordToGuess}
+                wrongLetters = {this.state.wrongLetters}
+                winStreak = {this.state.winStreak}
+                guessesLeft = {this.state.guessesLeft}
+                setLetter = {this.setLetter}
+                setWrongLetter = {this.setWrongLetter}
+                setLettersClickCount = {this.setLettersClickCount}
+                setWordBank = {this.setWordBank}
+                setWord = {this.setWord}
+                setGuessesLeft = {this.setGuessesLeft}
+                addWinStreak = {this.addWinStreak}
+                gameOver = {this.gameOver}
+                startGame = {this.startGame}
+              />
+            )} />
+            <Route path="/scifi" render={() => (
+              <SciFi
+                letters = {this.state.letters}
+                lettersClickCount = {this.state.lettersClickCount}
+                wordToGuess = {this.state.wordToGuess}
+                wrongLetters = {this.state.wrongLetters}
+                winStreak = {this.state.winStreak}
+                guessesLeft = {this.state.guessesLeft}
+                setLetter = {this.setLetter}
+                setWrongLetter = {this.setWrongLetter}
+                setLettersClickCount = {this.setLettersClickCount}
+                setWordBank = {this.setWordBank}
+                setWord = {this.setWord}
+                setGuessesLeft = {this.setGuessesLeft}
+                addWinStreak = {this.addWinStreak}
+                gameOver = {this.gameOver}
+                startGame = {this.startGame}
+              />
+            )} />
+          <Route path="/fantasy" render={() => (
+              <Fantasy
                 letters = {this.state.letters}
                 lettersClickCount = {this.state.lettersClickCount}
                 wordToGuess = {this.state.wordToGuess}
