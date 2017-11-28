@@ -58,7 +58,6 @@ app.get('/api/:theme', (req, res) => {
     if (err) throw err;
     else {
       // TODO: set conditional for no theme found.
-      console.log('helper!', foundTheme);
       res.send(foundTheme);
     }
   })

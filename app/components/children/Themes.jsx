@@ -7,10 +7,6 @@ import Header from './Header.jsx';
 class Themes extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-
-    }
   }
 
   render () {

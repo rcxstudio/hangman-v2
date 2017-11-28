@@ -117,8 +117,8 @@ class Main extends React.Component {
   }
   // React Lifecycle functions
   componentDidMount() {
-    console.log('MAIN MOUNTED');
-    // NOTE: Think about how I can reduce the duplication of reset values in the 
+    console.log('%cThanks for playing! I hope you enjoy!', 'color: red; font-style: bold; font-size: 24px; background-color: black');
+    // NOTE: Think about how I can reduce the duplication of reset values in the
   }
 
   // Custom functions

@@ -9,14 +9,6 @@ class Streak extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    // console.log('GRANDKID on mount!', this.props.wordToGuess)
-  }
-
-  componentDidUpdate() {
-    // console.log('GRANDKID on update!', this.props.wordToGuess)
-  }
-
   render() {
     // TODO: function to replace streak count
     return (

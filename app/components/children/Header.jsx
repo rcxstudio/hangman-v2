@@ -8,11 +8,6 @@ class Header extends React.Component {
   constructor(props){
     super(props);
 
-    // this.state = {
-    //   currentUser: ''
-    // }
-    //
-    // this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
