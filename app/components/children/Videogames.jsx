@@ -6,6 +6,7 @@ import GuessArea from './grandchildren/GuessArea.jsx';
 import Streak from './grandchildren/Streak.jsx';
 import Guesses from './grandchildren/Guesses.jsx';
 import LetterBank from './grandchildren/LetterBank.jsx';
+import TopScores from './grandchildren/TopScores.jsx';
 import helpers from '../utils/helpers';
 import Copyright from './Copyright.jsx';
 
@@ -61,6 +62,11 @@ class Videogames extends React.Component {
                 letters = {this.props.letters}
                 wrongLetters = {this.props.wrongLetters}
               />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <TopScores />
             </div>
           </div>
         </section>
