@@ -63,10 +63,10 @@ class Fantasy extends React.Component {
                 wrongLetters = {this.props.wrongLetters}
               />
             </div>
-            <div className="row">
-              <div className="col-md-12 text-center">
-                <TopScores />
-              </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <TopScores />
             </div>
           </div>
         </section>
