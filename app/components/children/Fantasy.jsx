@@ -8,6 +8,7 @@ import Guesses from './grandchildren/Guesses.jsx';
 import LetterBank from './grandchildren/LetterBank.jsx';
 import helpers from '../utils/helpers';
 import Copyright from './Copyright.jsx';
+import TopScores from './grandchildren/TopScores.jsx';
 
 class Fantasy extends React.Component {
   constructor(props){
