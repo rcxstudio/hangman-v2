@@ -53,14 +53,14 @@ class SciFi extends React.Component {
               />
             </div>
             <div className="col-md-4 text-center">
-              <Guesses
-                guessesLeft = {this.props.guessesLeft}
-              />
-            </div>
-            <div className="col-md-4 text-center">
               <LetterBank
                 letters = {this.props.letters}
                 wrongLetters = {this.props.wrongLetters}
+              />
+            </div>
+            <div className="col-md-4 text-center">
+              <Guesses
+                guessesLeft = {this.props.guessesLeft}
               />
             </div>
           </div>

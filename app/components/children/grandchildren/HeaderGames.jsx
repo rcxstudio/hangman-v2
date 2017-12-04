@@ -14,7 +14,9 @@ class HeaderGames extends React.Component {
       <header className="container-fluid">
         <div className="row">
           <div className="col-md-12 text-center" id="videogames-header">
-            <h1>MERNman - Video Game Theme</h1>
+            <Link to="/">
+              <h1>MERNman - Video Game Theme</h1>
+            </Link>
           </div>
         </div>
       </header>

@@ -14,7 +14,9 @@ class HeaderSciFi extends React.Component {
       <header className="container-fluid">
         <div className="row">
           <div className="col-md-12 text-center" id="scifi-header">
-            <h1>MERNman - Sci-Fi Theme</h1>
+            <Link to="/">
+              <h1>MERNman - Sci-Fi Theme</h1>
+            </Link>
           </div>
         </div>
       </header>
