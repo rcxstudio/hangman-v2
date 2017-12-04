@@ -87,24 +87,30 @@ span[data-toggle="inactive"] {
 
 /*Videogames Styling*/
 #videogames-theme {
+	font-family: 'Press Start 2P', cursive;
 	background-color: green;
 	color: white;
+	font-size: 2rem;
 	margin-bottom: 1.15rem;
 }
 
 #videogames-header {
+	font-family: 'Press Start 2P', cursive;
 	background-color: green;
 	color: white;
 }
 
 /*Fantasy Styling*/
 #fantasy-theme {
+	font-family: 'Almendra', serif;
 	background-color: blue;
 	color: gray;
+	font-size: 2rem;
 	margin-bottom: 1.15rem;
 }
 
 #fantasy-header {
+	font-family: 'Almendra', serif;
 	background-color: blue;
 	color: gray;
 }
@@ -112,12 +118,14 @@ span[data-toggle="inactive"] {
 
 /*SciFi Styling*/
 #scifi-theme {
+	font-family: 'Orbitron', sans-serif;
 	background-color: black;
 	color: white;
 	margin-bottom: 1.15rem;
 }
 
 #scifi-header {
+	font-family: 'Orbitron', sans-serif;
 	background-color: black;
 	color: white;
 }

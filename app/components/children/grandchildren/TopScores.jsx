@@ -16,7 +16,7 @@ class TopScores extends React.Component {
           <h3 className="panel-title ">Top 10 Scores</h3>
         </div>
         <div className="panel-body">
-          List of 10 scorers
+          Add list of 10 scorers
         </div>
       </div>
   )}
