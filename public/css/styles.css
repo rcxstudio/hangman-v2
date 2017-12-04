@@ -75,26 +75,51 @@ span[data-toggle="inactive"] {
 	border-color: black;
 }
 
+/*All Themes Styling*/
+
 #theme-list {
   margin-top: 15%;
 }
 
-#videogames-theme {
-	background-color: black;
-	color: green;
-	margin-bottom: 1.15rem;
-}
-
-#fantasy-theme {
+#themes-header {
 	background-color: gray;
-	color: blue;
+}
+
+/*Videogames Styling*/
+#videogames-theme {
+	background-color: green;
+	color: white;
 	margin-bottom: 1.15rem;
 }
 
+#videogames-header {
+	background-color: green;
+	color: white;
+}
+
+/*Fantasy Styling*/
+#fantasy-theme {
+	background-color: blue;
+	color: gray;
+	margin-bottom: 1.15rem;
+}
+
+#fantasy-header {
+	background-color: blue;
+	color: gray;
+}
+
+
+/*SciFi Styling*/
 #scifi-theme {
 	background-color: black;
 	color: white;
 	margin-bottom: 1.15rem;
+}
+
+#scifi-header {
+	background-color: black;
+	color: white;
 }
 
 /* Bootstrap cusomizations*/

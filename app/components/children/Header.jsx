@@ -14,7 +14,7 @@ class Header extends React.Component {
     return (
       <header className="container-fluid">
         <div className="row">
-          <div className="col-md-12 text-center">
+          <div className="col-md-12 text-center" id="themes-header">
             <h1>MERNman</h1>
           </div>
         </div>
