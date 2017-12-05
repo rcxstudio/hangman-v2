@@ -30,6 +30,7 @@ class Fantasy extends React.Component {
             <div className="col-md-12 text-center">
               <GuessArea
                 letters = {this.props.letters}
+                theme = {this.props.theme}
                 lettersClickCount = {this.props.lettersClickCount}
                 wordToGuess = {this.props.wordToGuess}
                 wrongLetters = {this.props.wrongLetters}
@@ -50,23 +51,28 @@ class Fantasy extends React.Component {
             <div className="col-md-4 text-center">
               <Streak
                 winStreak = {this.props.winStreak}
+                theme = {this.props.theme}
               />
             </div>
             <div className="col-md-4 text-center">
               <LetterBank
                 letters = {this.props.letters}
+                theme = {this.props.theme}
                 wrongLetters = {this.props.wrongLetters}
               />
             </div>
             <div className="col-md-4 text-center">
               <Guesses
                 guessesLeft = {this.props.guessesLeft}
+                theme = {this.props.theme}
               />
             </div>
           </div>
           <div className="row">
             <div className="col-md-12 text-center">
-              <TopScores />
+              <TopScores
+                theme = {this.props.theme}
+              />
             </div>
           </div>
         </section>
