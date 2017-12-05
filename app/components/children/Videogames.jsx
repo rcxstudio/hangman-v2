@@ -51,23 +51,28 @@ class Videogames extends React.Component {
             <div className="col-md-4 text-center">
               <Streak
                 winStreak = {this.props.winStreak}
+                theme = {this.props.theme}
               />
             </div>
             <div className="col-md-4 text-center">
               <LetterBank
                 letters = {this.props.letters}
+                theme = {this.props.theme}
                 wrongLetters = {this.props.wrongLetters}
               />
             </div>
             <div className="col-md-4 text-center">
               <Guesses
+                theme = {this.props.theme}
                 guessesLeft = {this.props.guessesLeft}
               />
             </div>
           </div>
           <div className="row">
             <div className="col-md-12 text-center">
-              <TopScores />
+              <TopScores
+                theme = {this.props.theme}
+              />
             </div>
           </div>
         </section>

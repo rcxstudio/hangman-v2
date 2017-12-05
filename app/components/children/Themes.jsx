@@ -25,11 +25,6 @@ class Themes extends React.Component {
               </ul>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-12 text-center">
-              <TopScores />
-            </div>
-          </div>
         </section>
         <Copyright />
       </div>
