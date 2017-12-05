@@ -94,13 +94,7 @@ span[data-toggle="inactive"] {
 	margin-bottom: 1.15rem;
 }
 
-#videogames-header {
-	font-family: 'Press Start 2P', cursive;
-	background-color: green;
-	color: white;
-}
-
-.vg-panel-hdr {
+#videogames-header, .panel-default>.vg-panel-hdr {
 	font-family: 'Press Start 2P', cursive;
 	background-color: green;
 	color: white;
@@ -115,7 +109,7 @@ span[data-toggle="inactive"] {
 	margin-bottom: 1.15rem;
 }
 
-#fantasy-header {
+#fantasy-header, .panel-default>.fantasy-panel-hdr {
 	font-family: 'Almendra', serif;
 	background-color: blue;
 	color: gray;
@@ -130,7 +124,7 @@ span[data-toggle="inactive"] {
 	margin-bottom: 1.15rem;
 }
 
-#scifi-header {
+#scifi-header, .panel-default>.scifi-panel-hdr {
 	font-family: 'Orbitron', sans-serif;
 	background-color: black;
 	color: white;
