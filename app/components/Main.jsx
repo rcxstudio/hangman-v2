@@ -420,6 +420,7 @@ class Main extends React.Component {
             <Route path="/videogames" render={() => (
               <Videogames
                 letters = {this.state.letters}
+                theme = {this.state.themes}
                 lettersClickCount = {this.state.lettersClickCount}
                 wordToGuess = {this.state.wordToGuess}
                 wrongLetters = {this.state.wrongLetters}
@@ -439,6 +440,7 @@ class Main extends React.Component {
             <Route path="/scifi" render={() => (
               <SciFi
                 letters = {this.state.letters}
+                theme = {this.state.themes}
                 lettersClickCount = {this.state.lettersClickCount}
                 wordToGuess = {this.state.wordToGuess}
                 wrongLetters = {this.state.wrongLetters}
@@ -458,6 +460,7 @@ class Main extends React.Component {
           <Route path="/fantasy" render={() => (
               <Fantasy
                 letters = {this.state.letters}
+                theme = {this.state.themes}
                 lettersClickCount = {this.state.lettersClickCount}
                 wordToGuess = {this.state.wordToGuess}
                 wrongLetters = {this.state.wrongLetters}

@@ -39,7 +39,7 @@ ul {
 }
 
 a {
-	color: black;
+	color: inherit;
 	font-size: 1.5rem;
 }
 
@@ -95,6 +95,12 @@ span[data-toggle="inactive"] {
 }
 
 #videogames-header {
+	font-family: 'Press Start 2P', cursive;
+	background-color: green;
+	color: white;
+}
+
+.vg-panel-hdr {
 	font-family: 'Press Start 2P', cursive;
 	background-color: green;
 	color: white;

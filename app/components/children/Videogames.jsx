@@ -30,6 +30,7 @@ class Videogames extends React.Component {
             <div className="col-md-12 text-center">
               <GuessArea
                 letters = {this.props.letters}
+                theme = {this.props.theme}
                 lettersClickCount = {this.props.lettersClickCount}
                 wordToGuess = {this.props.wordToGuess}
                 wrongLetters = {this.props.wrongLetters}
