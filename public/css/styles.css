@@ -18,6 +18,10 @@ html {
 	/*font-family: 'Questrial', sans-serif;*/
 }
 
+p {
+	display: inline-block;
+}
+
 header {
 	color: white;
 	background-color: black;
@@ -47,16 +51,15 @@ a:-webkit-any-link {
 	text-decoration: none;
 }
 
-/*TODO: Remove when functioning*/
-span[data-toggle="wrong"] {
+p[data-toggle="wrong"] {
 	color: red;
 }
 
-span[data-toggle="correct"] {
+p[data-toggle="correct"] {
 	opacity: 0;
 }
 
-span[data-toggle="inactive"] {
+p[data-toggle="inactive"] {
 	color: black;
 }
 
@@ -105,14 +108,14 @@ span[data-toggle="inactive"] {
 	font-family: 'Almendra', serif;
 	font-size: 2rem;
 	background-color: blue;
-	color: gray;
+	color: lightgray;
 	margin-bottom: 1.15rem;
 }
 
 #fantasy-header, .panel-default>.fantasy-panel-hdr {
 	font-family: 'Almendra', serif;
 	background-color: blue;
-	color: gray;
+	color: lightgray;
 }
 
 /*SciFi Styling*/
@@ -136,6 +139,6 @@ span[data-toggle="inactive"] {
 }
 
 /* Media Queries Section */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1199px) {
 
 }

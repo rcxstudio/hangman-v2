@@ -29,13 +29,13 @@ class LetterBank extends React.Component {
         <div className="panel-body letterbank">
           {Object.keys(this.props.letters).map((key, i) => {
             if (this.props.wrongLetters[key]) {
-              return <span key={key} data-toggle="wrong">{key.toUpperCase()}</span>;
+              return <p key={key} data-toggle="wrong">{key.toUpperCase()}</p>;
             }
             else if (this.props.letters[key]) {
-              return <span key={key} data-toggle="correct">{key.toUpperCase()}</span>;
+              return <p key={key} data-toggle="correct">{key.toUpperCase()}</p>;
             }
             else {
-              return <span key={key} data-toggle="inactive">{key.toUpperCase()}</span>;
+              return <p key={key} data-toggle="inactive">{key.toUpperCase()}</p>;
             }
           })}
         </div>
