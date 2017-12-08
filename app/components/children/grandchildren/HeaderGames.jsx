@@ -11,7 +11,15 @@ class HeaderGames extends React.Component {
 
   render() {
     return (
-
+      <header className="container-fluid">
+        <div className="row" id="videogames-header">
+          <div className="col-md-12 text-center">
+            <Link to="/">
+              <h1>MERNman - Video Game Theme</h1>
+            </Link>
+          </div>
+        </div>
+      </header>
   )}
 }
 
