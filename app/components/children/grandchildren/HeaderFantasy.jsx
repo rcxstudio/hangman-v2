@@ -12,8 +12,8 @@ class HeaderFantasy extends React.Component {
   render() {
     return (
       <header className="container-fluid">
-        <div className="row">
-          <div className="col-md-12 text-center" id="fantasy-header">
+        <div className="row" id="fantasy-header">
+          <div className="col-md-12 text-center">
             <Link to="/">
               <h1>MERNman - Fantasy Theme</h1>
             </Link>
